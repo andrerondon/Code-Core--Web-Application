@@ -15,6 +15,11 @@ function pow(n1, n2){
 
 console.log(pow(2,4))
 
+function pow2(){
+    Math.pow(10, 3)
+}
+
+
 
 
 // function pow(n1, n2){
