@@ -17,10 +17,10 @@ function mergeSort(arr) {
   }
   
   // [5,1,4,3,9,2,10, -23]
-  // [5, 1, 4, 3] [9, 2, 10, -23]
-  // [5, 1] [4, 3]
-  // [5] [1] -> eventually this gets merged
-  
+  // [5, 1, 4, 3]                     |[9, 2, 10, -23]
+  // [5, 1] [4, 3]                    |[9, 2] [10, -23]
+  // [5] [1] [4] [3]                         |[9] [2] [10] [-23]
+  // [1, 5] [3, 4]
   function merge(left, right) {
     const mergedArr = [];
     while(left.length && right.length) {
