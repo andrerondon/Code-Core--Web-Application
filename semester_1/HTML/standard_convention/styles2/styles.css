@@ -1,0 +1,108 @@
+
+.box__blue {
+    width: 400px; 
+    height: 550px; 
+    background-color: rgb(1, 1, 143);
+    padding: 15px; 
+    box-sizing: border-box; 
+    border: 1px solid white;
+    float: left;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box__white {
+    width: 350px; 
+    height: 500px; 
+    background-color: rgb(253, 253, 255);
+    padding: 15px; 
+    border-radius: 40px;
+    box-sizing: border-box;  
+    border: 1px solid white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.user__photo{
+    width: 80px; 
+    height: 100px; 
+    position: absolute; 
+    margin-right: 10px;
+    /* margin-top: 1%; */
+    border-radius: 40px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.user__name{
+    font-size: 30px;
+    position: absolute;
+    top: 10%;
+    left: 22%;
+}
+
+.user__nickname{
+    font-size: 30px;
+    position: absolute;
+    top: 20%;
+    left: 22%;
+}
+
+.user__description{
+    font-size: 27px;
+    position: absolute;
+    top: 35%;
+    left: 10%;
+}
+
+.user__post{
+    font-size: 30px;
+    position: absolute;
+    top: 60%;
+    left: 40%;
+}
+
+.user__postagens{
+    font-size: 30px;
+    position: absolute;
+    top: 70%;
+    left: 40%;
+}
+
+.user__email{
+    font-size: 25px;
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 4%;
+    background: gray; 
+    border: 1px 1px 1px 1px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    
+}
+
+.user__bithday{
+    font-size: 27px;
+    color: white;
+    position: absolute;
+    top: 90%;
+    left: 20%;
+    background: gray; 
+    border: 1px 1px 1px 1px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+
+}
+
+
+
+
+   
+

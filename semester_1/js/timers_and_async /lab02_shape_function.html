@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shape</title>
+</head>
+<body>
+    
+        <p id="demo"> Do you Whant to see the shape?</p>
+        <button type="button"onclick="console.log(shape(9))">See your console</button>
+        <script> function shape(rows) {
+                let space = "   "; 
+                let string = "";
+                for (let column = 0; column < rows; column ++) { 
+                    let indent = rows *2 - column *2 ;  
+                    for (let i = 0; i < indent; i++) { 
+                        string+=' '; 
+                    }
+                    for (let j = 0; j < rows; j++) {
+                        string+="*" + space ; 
+                       
+                    }
+                    string += '\n'; 
+                }
+                return string;
+            }
+        
+         </script>
+
+
+
+</body>
+</html>

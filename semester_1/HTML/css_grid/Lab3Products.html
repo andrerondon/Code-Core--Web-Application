@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Products + Filters</title>
+    <style>
+        header {
+            text-align: center;
+            font-size: 1em;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 4fr 4fr 1fr;
+            grid-gap: 20px;
+        }
+        .container div {
+            background-color:gray;
+            border-radius: 1em;
+        }
+        .longbar {
+            grid-row: 1/4;
+        }
+        div.inner1 , div.inner2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background-color: white;
+        }
+        .inner1 div:first-child , .inner2 div:first-child {
+            justify-self: start;
+            width: 5em;
+            height: 5em;
+        }
+        .inner1 div:last-child , .inner2 div:last-child {
+            justify-self: end;
+            width: 5em;
+            height: 5em;
+        }
+    </style>
+</head>
+<body>
+    <header>PRODUCTS + FILTER</header>
+    <div class="container">
+        <div class="longbar">longbar</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div class="inner1">
+            <div>5</div>
+            <div>6</div>
+        </div>
+        <div class="inner2">
+            <div>7</div>
+            <div>8</div>
+        </div>
+    </div>
+</body>
+</html>

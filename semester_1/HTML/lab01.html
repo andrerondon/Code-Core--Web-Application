@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Cambria, Georgia, times, Geneva;
+        }
+        .container {
+            width: 90%;
+            background-color: whitesmoke;
+            margin-left: 5%;
+            display: grid;
+            grid-auto-rows: minmax(40px, max-content);
+        }
+        .container>* {
+            border: 1px solid black;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            color: white;
+            background-color: maroon;
+        }
+        content.content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-auto-rows: minmax(100px, max-content);
+        }
+        .content.content>div {
+            border: 1px solid black;
+        }
+        .footer>.phone {
+            padding: 10px;
+            font-size: 1.5em;
+        }
+        .header {
+            background-color: maroon;
+        }
+        .header>div {
+            color: white;
+            font-size: 1.5em;
+            padding: 0.4em;
+        }
+        .left+div {
+            background-color: gold;
+        }
+        .footer>.phone~div {
+            color: white;
+            font-size: 1.5em;
+            padding: 10px;
+        }
+        /* form */
+        div.left form {
+            display: grid;
+            grid-auto-rows: 40px;
+            padding: 10px;
+        }
+        div.left form>* {
+            border: 1px solid black;
+        }
+
+
+        input[class|="form"]  { 
+            padding: 10px;
+            font-size:1.2em;
+            color:maroon;
+        }
+        input[name*="name"]  { 
+            font-size:20px;
+            font-weight: bold;
+        }
+        input[name~="user"]  { 
+            font-size:20px;
+            font-weight: bold;
+        }
+        input[name$="submit"]  { 
+            font-size:20px;
+            font-weight: bold;
+        }
+        /* Note: use only attribute selectors for this class */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header menu">
+            <div>Home</div>
+            <div>About</div>
+            <div>Services</div>
+            <div>Contact Us</div>
+        </header>
+        <content class="content">
+            <div class="left">
+                <form>
+                    <input type="text" name="firstname" class="form-input" placeholder="First Name" />
+                    <input type="text" name="lastname" class="form-input" placeholder="Last Name" />
+                    <input type="text" name="companyname" class="form-input" placeholder="Company" />
+                    <input type="email" name="useremail" class="form-input" placeholder="email@domain.com" />
+                    <input type="password" name="userpassword" class="form-input" placeholder="Password" />
+                    <input type="submit" class="btn btn-form-submit" value="Submit" />
+                </form>
+            </div>
+            <div class="right"></div>
+        </content>
+        <footer class="footer menu">
+            <div class="phone">778-000-0000</div>
+            <div>facebook</div>
+            <div>twitter</div>
+            <div>linkedin</div>
+        </footer>
+    </div>
+</body>
+</html>
+
+
+<!-- Module: hc selectors_and_stylesheets_1 -->
+<!-- Lab: important_property -->
+<!-- Completion Time Estimation: 20 minutes -->
+<!-- Specs -->
+<!--
+ **
+ * 1. What is !important property? 
+ * 2. How does it work with CSS specificity? 
+ * 3. When do we might use it and how to avoid using it?
+ -->
+
+
+<!-- Specs -->
+<!-- 
+ **
+ * Note: use only attribute selectors for this class
+ *
+ * 1. give a padding of 10px, a font size of 1.2em, a maroon color to all input elements using attribute selector
+ * 2. give a font-size of 20px and a bold font-weight to any element that has 'name' in their name attribute
+ * 3. give a font-size of 20px and a bold font-weight to any element that attribute name starts with word'user'
+ * 4. give a font-size of 20px and a bold font-weight to any element that attribute class ends with word'submit'
+ * 
+-->
+
+
+-->

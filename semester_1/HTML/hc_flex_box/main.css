@@ -1,0 +1,11 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+}
+
+.item {
+    height: 50px;
+    width: 50px;
+    border: 1px red;
+}

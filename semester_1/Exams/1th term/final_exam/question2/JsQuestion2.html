@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Js Question 2</title>
+  
+</head>
+
+<body>
+
+    <canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;"></canvas>
+
+ 
+<script>
+
+        let contex = document.getElementById("myCanvas").getContext("2d");
+        let counter = 0;
+            for (let i=0;i<10;i++){  // a loop to make all circles
+                for (let j=0;j<10;j++){
+                    //Start from white and goes to black
+                    contex.fillStyle = "rgb(" + Math.floor(255-42.5*i) + "," + Math.floor(255-42.5*i) +
+                    "," + Math.floor(255-42.5*j) + ")";
+                    contex.beginPath();  // to desconect the circules
+                        if (i === counter && j === counter){
+                        //creates the circles
+                        contex.arc(25+j*50,30+i*50,20,0,Math.PI*2,true); // formula which give the direction and the size of the circles inside of the canvas
+                        contex.fill();  // fill with the gckground collor
+                        contex.stroke();           //creates a border around the circles so white one will be vissible
+                    } 
+                }
+                counter++;
+            }
+
+
+ </script> 
+    
+</body>
+
+</html>

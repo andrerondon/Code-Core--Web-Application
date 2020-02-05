@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bootstrap</title>
+    <!-- go to bootstrap.com and bootstrap or get cdn link -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+      .main-color {
+        color: maroon;
+      }
+      .secondary-color {
+        color: darkolivegreen;
+      }
+      .scroll {
+        margin-top: 50em;
+        height: 500em;
+      }
+      h3.secondary-color {
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Jumbotron -->
+      <h1 class="pb-2 mt-4 mb-2 border-bottom main-color">
+        jumbotron
+      </h1>
+
+      <div class="jumbotron">
+        <h1 style="color: green">
+          Codecore College
+        </h1>
+        <p>A place to grow geeks</p>
+      </div>
+
+      <!-- Text classes -->
+      <h1 class="pb-2 mt-4 mb-2 border-bottom main-color">
+        Text Classes
+      </h1>
+
+      <!--  Classes meaning
+        pb-2: padding-botom 2 space units
+        mt-4: margin-top 4 spacer units
+        mb-2: margin-bottom 2 spacer units
+        border-bottom: 1px solid rgb(222, 226, 230)
+       -->
+      <p class="lead">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+        commodi eius fuga
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+        commodi eius fuga
+      </p>
+
+      <h3 class="secondary-color">
+        Text Alignment:
+      </h3>
+
+      <p class="text-left">Left Aligned</p>
+      <p class="text-center">Center Aligned</p>
+      <p class="text-right">Right Aligned</p>
+      <p class="text-justify">Justified Text</p>
+      <p class="nowrap">No Wrap text</p>
+      <p class="text-lowercase">LOWERCASE TEXT</p>
+      <p class="text-uppercase">uppercase text</p>
+      <p class="text-capitalize">capitalize text</p>
+      <p class="font-weight-bold">Bold Font</p>
+      <p class="italic">Italic text</p>
+
+      <blockquote class="blockquote">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. In non dolorum
+        sit odio error quidem voluptatum fuga ipsum, cum, porro perferendis
+        explicabo tempora reiciendis, possimus fugit pariatur placeat aliquam
+        facilis!
+        <footer class="blockquote-footer">
+          Quoted by <cite title="lorem website">Lorem website</cite>
+        </footer>
+      </blockquote>
+
+      <!-- Floating elements -->
+      <h1 class="pb-2 mt-4 mb-2 border-bottom main-color">
+        Floating Elements
+      </h1>
+
+      <div class="clearfix">
+        <div class="float-right">Float to right</div>
+        <div class="float-left">Float to left</div>
+      </div>
+      <!-- Clearing floats works by adding clearfix to parent element of the floated elements -->
+      <div>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum sit
+        facere incidunt similique dicta! Rem repudiandae corporis tenetur
+        exercitationem possimus ad, molestias debitis quidem magni, neque,
+        consequuntur unde illum impedit.
+      </div>
+
+      <!-- Tables -->
+      <h1 class="pb-2 mt-4 mb-2 border-bottom main-color">
+        Tables
+      </h1>
+      <!-- <table class="table"> -->
+        <table class="table table-striped">
+        <!-- <table class="table table-bordered"> -->
+        <!-- <table class="table table-borderless"> -->
+        <!-- <table class="table table-hover"> -->
+        <!-- <table class="table table-dark"> -->
+        <!-- <table class="table table-dark table-sm"> -->
+        <!-- <table class="table table-responsive-xl"> -->
+        <thead>
+            <tr>
+                <th scope="col">S. No.</td>
+                <th scope="col">Name</td>
+                <th scope="col">City</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!-- <tr class="table-primary"> -->
+                <!-- <tr class="bg-primary"> -->
+                <th scope="row">1</td>
+                <td>Hindreen</td>
+                <td>Vancouver</td>
+            </tr>
+            <tr>
+                <!-- <tr class="table-success"> -->
+                <!-- <tr class="bg-success"> -->
+                <th scope="row">2</td>
+                <td>Brandon</td>
+                <td>Burnaby</td>
+            </tr>
+            <tr>
+                <!-- <tr class="table-danger"> -->
+                <!-- <tr class="bg-danger"> -->
+                <th scope="row">3</td>
+                <td>Naveed</td>
+                <td>Richmond</td>
+            </tr>
+        </tbody>
+      </table>
+
+    <!-- Text Colors -->
+    <h1 class="pb-2 mt-4 mb-2 border-bottom main-color">
+        Text Colors
+    </h1>
+    <ul>
+        <li class="text-muted">.text-muted class</li>
+        <li class="text-primary">.text-primary class</li>
+        <li class="text-success">.text-success class</li>
+        <li class="text-info">.text-info class</li>
+        <li class="text-danger">.text-danger class</li>
+        <li class="text-secondary">.text-secondary class</li>
+        <li class="text-white">.text-white class</li>
+        <li class="text-dark">.text-dark class</li>
+        <li class="text-body">.text-body class</li>
+        <li class="text-light">.text-light class</li>
+    </ul>
+    <ul>
+        <li class="bg-primary">.bg-primary class</li>
+        <li class="bg-success">.bg-success class</li>
+        <li class="bg-info">.bg-info class</li>
+        <li class="bg-warning">.bg-warning class</li>
+        <li class="bg-danger">.bg-danger class</li>
+        <li class="bg-secondary">.bg-secondary class</li>
+        <li class="bg-dark">.bg-dark class</li>
+        <li class="bg-light">.bg-light class</li>
+    </ul>
+
+    <!-- Dropdowns -->
+    <h1 class="pb-2 mt-4 mb-2 border-bottom main-color">
+        Dropdowns
+    </h1>
+    <h3 class="secondary-color">Dropdown List</h3>
+    
+    <div class="dropdown">
+    
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+            Select CS Subjects
+        </button>
+    
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Data Structure</a>
+            <a class="dropdown-item" href="#">Algorithm</a>
+            <a class="dropdown-item" href="#">Operating System</a>
+            <a class="dropdown-item" href="#">Computer Networks</a>
+        </div>
+    
+        <h3 class="secondary-color">Dropdown Divider List</h3>
+    
+        <div class="dropdown">
+    
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                Select Subjects
+            </button>
+    
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Data Structure</a>
+                <a class="dropdown-item" href="#">Algorithm</a>
+                <a class="dropdown-item" href="#">Operating System</a>
+                <a class="dropdown-item" href="#">Computer Networks</a>
+    
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Physics</a>
+                <a class="dropdown-item" href="#">Mathematics</a>
+                <a class="dropdown-item" href="#">Chemistry</a>
+            </div>
+        </div>
+    
+        <h3 class="secondary-color">Dropdown Header List</h3>
+    
+        <div class="dropdown">
+    
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                Select Subjects
+            </button>
+    
+            <div class="dropdown-menu">
+                <strong class="dropdown-header">CS Subjects</strong>
+                <a class="dropdown-item" href="#">Data Structure</a>
+                <a class="dropdown-item" href="#">Algorithm</a>
+                <a class="dropdown-item" href="#">Operating System</a>
+                <a class="dropdown-item" href="#">Computer Networks</a>
+    
+                <div class="dropdown-divider"></div>
+                <strong class="dropdown-header">Other Subjects</strong>
+                <a class="dropdown-item" href="#">Physics</a>
+                <a class="dropdown-item" href="#">Mathematics</a>
+                <a class="dropdown-item" href="#">Chemistry</a>
+            </div>
+        </div>
+    
+        <h3 class="secondary-color">Dropdown Disable and Active items List</h3>
+    
+        <div class="dropdown">
+    
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                Select Subjects
+            </button>
+    
+            <div class="dropdown-menu">
+                <a class="dropdown-item active" href="#">Data Structure</a>
+                <a class="dropdown-item disabled" href="#">Algorithm</a>
+                <a class="dropdown-item active" href="#">Operating System</a>
+                <a class="dropdown-item" href="#">Computer Networks</a>
+            </div>
+        </div>
+    
+        <h3 class="secondary-color">Dropdown Right/Left items List</h3>
+    
+        <div class="dropdown dropright">
+            <!-- <div class="dropdown dropleft"> -->
+    
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                Select Subjects
+            </button>
+    
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Data Structure</a>
+                <a class="dropdown-item" href="#">Algorithm</a>
+                <a class="dropdown-item" href="#">Operating System</a>
+                <a class="dropdown-item" href="#">Computer Networks</a>
+            </div>
+        </div>
+    
+        <h3 class="secondary-color">Dropdown Menu Right Aligned</h3>
+    
+        <div class="dropdown">
+    
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                Select Computer Science Subject from List
+            </button>
+    
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#">Data Structure</a>
+                <a class="dropdown-item" href="#">Algorithm</a>
+                <a class="dropdown-item" href="#">Operating System</a>
+                <a class="dropdown-item" href="#">Computer Networks</a>
+            </div>
+        </div>
+    
+        <h3 class="secondary-color">Dropup List</h3>
+    
+        <div class="dropup">
+    
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                Select Subject
+            </button>
+    
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Data Structure</a>
+                <a class="dropdown-item" href="#">Algorithm</a>
+                <a class="dropdown-item" href="#">Operating System</a>
+                <a class="dropdown-item" href="#">Computer Networks</a>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <h1 class="pb-2 mt-4 mb-2 border-bottom main-color">
+            Buttons
+        </h1>
+
+        <h3 class="secondary-color">Button Element</h3>
+
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-secondary">Secondary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        
+        <h3 class="secondary-color">input and a elements with button classes</h3>
+
+        <input class="btn btn-success" type="button" value="Input Button">
+        <a href="#" class="btn btn-success" role="button">Link Button</a>
+        
+        <h3 class="secondary-color">Button Outline</h3>
+        <button type="button" class="btn btn-outline-primary">
+            Primary
+        </button>
+        
+        <button type="button" class="btn btn-outline-secondary">
+            Secondary
+        </button>
+        
+        <button type="button" class="btn btn-outline-success">
+            Success
+        </button>
+        
+        <button type="button" class="btn btn-outline-danger">
+            Danger
+        </button>
+        
+        <button type="button" class="btn btn-outline-warning">
+            Warning
+        </button>
+        
+        <button type="button" class="btn btn-outline-info">
+            Info
+        </button>
+        
+        <button type="button" class="btn btn-outline-light">
+            Light
+        </button>
+        <button type="button" class="btn btn-outline-dark">
+            Dark
+        </button>
+        
+        <h3 class="secondary-color">Button Sizes</h3>
+        <button type="button" class="btn btn-success btn-sm">
+            Small Button
+        </button>
+        
+        <button type="button" class="btn btn-success">
+            Default Button
+        </button>
+        
+        <button type="button" class="btn btn-success btn-lg">
+            Large Button
+        </button>
+        
+        <h3 class="secondary-color">Block Level Buttons</h3>
+        <button type="button" class="btn btn-block btn-primary">
+            Block Level Button
+        </button>
+        
+        <button type="button" class="btn btn-block btn-success">
+            Block Level Button
+        </button>
+        
+        <h3 class="secondary-color">Spinner Button</h3>
+        <button type="button" class="btn btn-primary">
+            <span class="spinner-border spinner-border-sm"></span>
+            Spinner Button
+        </button>
+        
+        <button type="button" class="btn btn-success">
+            <span class="spinner-grow spinner-grow-sm"></span>
+            Spinner Button
+        </button>
+
+        <!-- Images -->
+        <h1 class="pb-2 mt-4 mb-2 border-bottom main-color">
+            Images
+        </h1>
+
+        <h3 class="secondary-color">Responsive Imaeges</h3>
+        <img class="img-fluid" src="../images/cc-logo-1.jpeg" alt="Responsive image" width="667" height="440" />
+        
+        <h3 class="secondary-color">Rounded Corner Image</h3>
+        <img class="rounded" src="../images/cc-logo-1.jpeg" alt="Responsive image" width="367" height="340" />
+        
+        <h3 class="secondary-color">Rounded Circle Image</h3>
+        <img class="rounded-circle" src="../images/cc-logo-1.jpeg" alt="Responsive image" width="467" height="340" />
+        
+        <h3 class="secondary-color">Thumbnail Image</h3>
+        <img class="img-thumbnail" src="../images/cc-logo-1.jpeg" alt="Responsive image" width="467" height="340" />
+        
+        <h3 class="secondary-color">Centered Image</h3>
+        <img class="mx-auto d-block" src="../images/cc-logo-1.jpeg" alt="Responsive image" width="350" height="250" />
+        
+        <!-- Simple form -->
+        <h1 class="pb-2 mt-4 mb-2 border-bottom main-color">
+            Simple Form
+        </h1>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        
+        <!-- Custom Forms -->
+        <h1 class="pb-2 mt-4 mb-2 border-bottom main-color">
+            Custom Forms
+        </h1>
+        <form action="#">
+            <!-- Custom Select Menu -->
+            <select name="sub" class="custom-select mb-3">
+                <option selected>Select Computer science Subject</option>
+                <option value="DS">Data Structure</option>
+                <option value="Algo">Algorithm</option>
+                <option value="CN">Computer Networks</option>
+                <option value="OS">Operating System</option>
+            </select>
+            <!-- Custom Select Menu Sizes -->
+            <select name="sub" class="custom-select custom-select-lg mb-3">
+                <option selected>Select Computer science Subject</option>
+                <option value="DS">Data Structure</option>
+                <option value="Algo">Algorithm</option>
+                <option value="CN">Computer Networks</option>
+                <option value="OS">Operating System</option>
+            </select>
+        
+            <select name="sub" class="custom-select custom-select mb-3">
+                <option selected>Select Computer science Subject</option>
+                <option value="DS">Data Structure</option>
+                <option value="Algo">Algorithm</option>
+                <option value="CN">Computer Networks</option>
+                <option value="OS">Operating System</option>
+            </select>
+        
+            <select name="sub" class="custom-select custom-select-sm mb-3">
+                <option selected>Select Computer science Subject</option>
+                <option value="DS">Data Structure</option>
+                <option value="Algo">Algorithm</option>
+                <option value="CN">Computer Networks</option>
+                <option value="OS">Operating System</option>
+            </select>
+        
+            <!-- Custom File Upload -->
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="fileUpload" name="file_name">
+                <label class="custom-file-label" for="fileUpload">
+                    Choose file from computer
+                </label>
+            </div>
+        
+            <!-- Custom Range -->
+            <label for="cus_range">Custom range</label>
+        
+            <input type="range" class="custom-range" id="cus_range" name="range">
+        
+            <!-- Custom Radio Buttons -->
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="customRadio" name="radioButton" checked>
+                <label class="custom-control-label" for="customRadio">
+                    Radio Button On
+                </label>
+            </div>
+            <br>
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="customRadio" name="radioButton">
+                <label class="custom-control-label" for="customRadio">
+                    Radio Button Off
+                </label>
+            </div>
+        
+            <!-- Custom Switch Buttons -->
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch" name="switch" checked>
+                <label class="custom-control-label" for="customSwitch">
+                    Toggle On
+                </label>
+            </div>
+            <br>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch" name="switch">
+                <label class="custom-control-label" for="customSwitch">
+                    Toggle Off
+                </label>
+            </div>
+        
+            <!-- Default and custom checkbox -->
+            <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheckBox" name="checkbox1">
+                <label class="custom-control-label" for="customCheckBox">
+                    Custom checkbox
+                </label>
+            </div>
+        
+            <input type="checkbox" id="defaultCheckBox" name="checkbox2" checked>
+            <label for="defaultCheckBox">Default checkbox</label>
+            <br>
+        
+            <!-- Inline radio and checkboxes-->
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="customRadio" name="radioButton" checked>
+                <label class="custom-control-label" for="customRadio">
+                    Radio Button
+                </label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="customRadio" name="radioButton">
+                <label class="custom-control-label" for="customRadio">
+                    Radio Button
+                </label>
+            </div>
+            <br><br>
+            <div class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input" id="customCheckBox" name="checkbox1">
+                <label class="custom-control-label" for="customCheckBox">
+                    Custom checkbox
+                </label>
+            </div>
+            <div class="custom-control custom-checkbox custom-control-inline">
+                <input type="checkbox" class="custom-control-input" id="customCheckBox" name="checkbox1" checked>
+                <label class="custom-control-label" for="customCheckBox">
+                    Custom checkbox
+                </label>
+            </div>
+            <br><br>
+        
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Example file input</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+        </form>
+
+        <!-- Spinners -->
+        <h1 class="pb-2 mt-4 mb-2 border-bottom main-color">
+            Spinner
+        </h1>
+        
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading</span>
+        </div>
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading</span>
+        </div>
+        
+        <div class="spinner-grow" role="status">
+            <span class="sr-only">Loading</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="sr-only">Loading</span>
+        </div>
+        
+        <button type="button" class="btn btn-secondary" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
+            </span>
+            <span class="sr-only">Loading</span>
+        </button>
+        
+        <button type="button" class="btn btn-primary" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
+            </span>
+            Processing...
+        </button>
+        <button type="button" class="btn btn-primary" disable>
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true">
+            </span>
+            Processing...
+        </button>
+        <div class="spinner-border text-primary" role="status" style="height:5rem; width:5rem;">
+            <span class="sr-only">Loading</span>
+        </div>
+        <!-- Collapse -->
+        <h1 class="pb-2 mt-4 mb-2 border-bottom main-color">
+            Collapse
+        </h1>
+        
+        <!-- <a class="btn btn-success" data-toggle="collapse" href="#example_1" role="button" aria-expanded="false"
+                  aria-controls="example_1">
+                  Codecore
+                </a> -->
+        
+        <button class="btn btn-success" data-toggle="collapse" data-target="#example_1" role="button" aria-expanded="false"
+            aria-controls="example_1">
+            Codecore
+        </button>
+        
+        <div class="collapse" id="example_1">
+            <div class="card card-body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum explicabo dolore ratione officia non similique
+                unde voluptas tenetur rem iusto! Voluptates perspiciatis odio tenetur, ratione voluptas assumenda? Quaerat,
+                aperiam atque.
+            </div>
+        </div>
+
+        <!-- Tooltip -->
+        <h1 class="pb-2 mt-4 mb-2 border-bottom main-color" data-toggle="tooltip"
+            title="I am tooltip hint. I am written inside title attribute">
+            Hover me I am a tooltip
+        </h1>
+        
+        <!-- Popover -->
+        <button class="btn btn-success" data-target="popover" title="popover title" data-content="I am popover content">
+            Popover
+        </button>
+      <!-- Just adding a scroll to the page -->
+      <div class="scroll">
+        Just to add a scroll
+      </div>
+    </div>
+    $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="popover"]').popover();
+    })
+  </body>
+</html>

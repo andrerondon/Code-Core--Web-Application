@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-container {
+            width: 60%;
+            margin-left: 20%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-around;
+            background-color: grey;
+        }
+
+        header a {
+            font-size: 1.6em;
+            text-decoration: none;
+            color: white;
+        }
+
+        section {
+            padding: 50px;
+        }
+
+        section.form-section form input {
+            display: block;
+            padding: 5px;
+            margin: 5px;
+            width: 100%;
+            height: 30px;
+            border-radius: 5px;
+        }
+
+        section.boxes-section {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-auto-rows: minmax(100px, max-content);
+        }
+
+        section.boxes-section>div {
+            border: 1px solid skyblue;
+        }
+
+        /* :link */
+        header a:link {
+            /* background-color: gold; */
+        }
+
+        /* :visited */
+        header a:visited {
+            color: maroon;
+        }
+
+        /* :active */
+        header a:active {
+            font-size: 40px;
+        }
+
+        /* :hover */
+        header a:hover {
+            color: yellow;
+            font-size: 30px;
+        }
+
+        /* :focus */
+        form input:focus {
+            outline: none;
+            border: 2px solid skyblue;
+            color: maroon;
+            font-size: 20px;
+        }
+
+        /* :enabled/disabled */
+        form input:enabled {
+            color: goldenrod;
+        }
+
+        form input:disabled {
+            color: red;
+            font-size: 20px;
+        }
+
+        /* checked */
+        form input[type="radio"]:checked {
+            margin-left: 90%;
+        }
+
+        form input[type="checkbox"]:checked {
+            margin-left: 10%;
+        }
+
+        /* first/last-child */
+        section.boxes-section div:first-child,
+        section.boxes-section div:last-child {
+            background-color: maroon;
+        }
+
+        /* first/last-of-type */
+        section.boxes-section div:first-of-type,
+        section.boxes-section div:last-of-type {
+            color: white;
+        }
+
+        /* nth-child() */
+        section.boxes-section div:nth-child(2) {
+            background-color: skyblue;
+        }
+
+        /* :only-child */
+        section.boxes-section div>span:only-child {
+            font-size: 20px;
+            font-weight: bold;
+            color: maroon;
+        }
+
+        /* :not(selector) */
+        section.boxes-section div:not(.box5) {
+            padding: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <header>
+            <a href="http://www.google.com">Home</a>
+            <a href="http://www.domain1.com">About</a>
+            <a href="http://www.domain2.com">Services</a>
+            <a href="http://www.domain3.com">Events</a>
+            <a href="http://www.domain4.com">Contact Us</a>
+        </header>
+
+        <section class="form-section">
+            <form>
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="password" />
+                <input type="radio" checked />
+                <input type="checkbox" checked />
+                <input type="button" value="Submit" disabled="disabled" />
+            </form>
+        </section>
+
+        <section class="boxes-section">
+            <div>box1</div>
+            <div>box2</div>
+            <div><span>box</span><span>3</span></div>
+            <div><span>box4</span></div>
+            <div class="box5">box5</div>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      div > a {
+        text-decoration: none;
+        font-size: 2em;
+        color: maroon;
+      }
+
+      /* this will select the direct li following .adajcent-sibling class
+        on the same level
+       */
+      .adjacent-sibling + li {
+        color: brown;
+        list-style: none;
+      }
+
+      /* This will select all (li)s that are following .general-sibling class
+        on the same level
+     */
+      .general-sibling ~ li {
+        color: brown;
+        list-style: none;
+      }
+
+      /* a[href="link"] {
+        text-decoration: none;
+        font-size: 2em;
+        color: red;
+      } */
+      /* a[href="https://www.wikipedia.org/"] {
+        color: green;
+      } */
+
+      /* a[href|='value'] */
+      /* this will select all classes that starting with links */
+      /* a[class|="link-tags"] {
+        color: green;
+      } */
+      body {
+        padding: 50px;
+        margin: 50px;
+      }
+
+      a[class~="tags-menu"] {
+        color: orange;
+      }
+
+      a[href^="https://"] {
+        color: cadetblue;
+      }
+
+      a[href$="org/"] {
+        color: pink;
+      }
+
+      a[href*="wikipedia"] {
+        color: chocolate;
+      }
+
+      /* a:hover {
+        background-color: lightgray;
+        font-size: 3em;
+      }
+      a[href="link"]:focus {
+        background-color: maroon;
+      } */
+
+      ol a:first-child,
+      ol li:last-child {
+        color: blue;
+      }
+      ol a:first-child:hover {
+        /* font-size: 3em; */
+      }
+
+      ol li:first-of-type {
+        color: brown;
+      }
+
+      ol li:nth-child(3) {
+        background: maroon;
+        color: white;
+      }
+      button:disabled {
+        color: maroon;
+      }
+
+      ol a::before {
+        content: "this is an ( ";
+      }
+      ol a::after {
+        content: " ) of an ordered list";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="first-container">
+      <a href="link">link</a>
+      <ul>
+        <li>
+          <a href="#">innerLink</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <ul>
+        <li class="adjacent-sibling general-sibling">
+          <a class="link tags-menu" href="#">first li</a>
+        </li>
+        <a class="link tags-menu" href="#">anchor tag</a>
+        <li>second li</li>
+        <li>third li</li>
+        <a class="link tags-menu" href="#">another link tag</a>
+        <div>
+          <a class="link tags-menu" href="https://www.wikipedia.org/"
+            >Wikipedia</a
+          >
+        </div>
+        <a class="link tags-menu" href="#">an a tag with only link class</a>
+      </ul>
+
+      <ol>
+        <a>item0</a>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+      </ol>
+      <button disabled>button</button>
+    </div>
+  </body>
+</html>

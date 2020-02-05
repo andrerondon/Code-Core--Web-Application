@@ -1,0 +1,12 @@
+.box1 {
+    position: relative;
+    width: 4em;
+    height: 4em;
+    bottom: 4em;
+    left: 5em;
+    z-index: 2;
+}
+
+.box2 {
+    z-index: 1;
+}

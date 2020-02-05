@@ -1,0 +1,96 @@
+.pageContainer{
+    margin-left:10%;
+    margin-right:10%;
+  }
+
+  .maxcontainer{
+    display: grid;
+    background-color: rgb(30, 20, 83);
+    
+  }
+
+  .main_Up_Left{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgb(196, 196, 196);
+  }
+
+  .main_Up_Left_header{
+    border-right: 2px solid rgb(30, 20, 83);
+    border-bottom: 5px solid rgb(30, 20, 83);
+    border-top: 2px solid rgb(30, 20, 83);
+    
+  }
+
+  .main_main_cointainer{
+    display: grid;
+    background-color: rgb(196, 196, 196);
+  }
+
+  .main_main_header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .main_Up_sign_in{
+  
+    border-bottom: 5px solid rgb(30, 20, 83);
+    border-top: 2px solid rgb(30, 20, 83);
+
+  }
+ 
+ 
+.container1{
+    /* grid-template-columns: 1fr 1fr; */
+    margin-bottom:15px;
+    padding: 0 10px 0 10px;
+    margin-left:10%;
+    margin-right:10%;
+}
+
+.container_of_services{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.header_menu{
+
+display: grid;
+grid-template-columns: 0.5fr 0.3fr 3fr;
+padding-top: 5px;
+background-color: rgb(196, 196, 196);
+border-top: 10px solid rgb(30, 20, 83);
+
+}
+
+.menu-list{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.footer_menu{
+    background-color: rgb(196, 196, 196);
+}
+
+.main_Up_sign_in{
+    background-color: rgb(196, 196, 196);
+}
+
+li{
+    list-style-type: none;
+}
+
+.main_service{
+    display: flex;
+    justify-content: center;
+}
+
+.main_Up_sign_in_contact_us{
+    display: flex;
+    justify-content: center;
+}
+
+.sing_up_text{
+    display: flex;
+    justify-content: center;
+}

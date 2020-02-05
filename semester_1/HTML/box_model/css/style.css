@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .page {
+    width: 60%;
+    margin-left: Calc(40% / 2);
+  }
+  
+  h1 {
+    color: mediumseagreen;
+  }
+  
+  p {
+    color: darkolivegreen;
+  }
+  
+  .box {
+    /* background-color: burlywood; */
+    /* border: 1px solid black; */
+    /* box-sizing: border-box; */
+    /* (default) to activate width, height, max/min-width/height on border (adjust them to border) */
+    box-sizing: content-box;
+    /* to activate width, height, max/min-width/height directly on content (adjust them to content) */
+    width: 300px;
+    /* max-width: 200px;
+    min-width: 150px; */
+  
+    height: auto;
+    /* max-height: 200px;
+    min-height: 150px; */
+  
+    /* padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 1em; */
+    /* padding is the shorthand for the above four properties */
+    /* padding: 1em; */
+    /* padding: top right bottom left; */
+    /* padding: 1em 1.1em 1.2em 1.3em; */
+    padding: 1em 1.1em; /* top-bottom left-right */
+    /* border-width: 1em;
+    border-style: solid;
+    border-color: maroon; */
+    /* we can combine all three of them into one property */
+    /* border: 1em solid maroon; */
+  
+    /* below are different border styles */
+    /* border: 1em solid maroon; */
+    /* border: 1em groove maroon; */
+    /* border: 1em dotted maroon; */
+    /* border: 1em ridge maroon; */
+    /* border: 1em dashed maroon; */
+    /* border: 1em hidden maroon; */
+    /* border: 1em inset maroon; */
+    /* border: 1em outset maroon; */
+    border-bottom: 1em groove green;
+    border-left: 1em groove green;
+    border-right: 1em groove green;
+    border-top: 1em groove green;
+  
+    /* Margin */
+    /* margin-left: 1em; */
+    /* margin-bottom: 1em; */
+    /* margin-top: 1em; */
+    /* margin-right: 1em; */
+    /* shorthand for the above four properties */
+    /* margin: 1em; */
+    /* or if we want to set different values */
+    /* margin: top right bottom left */
+    margin: 1em 1.1em 1.2em 1.3em;
+  }
+  

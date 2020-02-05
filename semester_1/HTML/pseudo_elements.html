@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-container {
+            width: 60%;
+            margin-left: 20%;
+        }
+
+        section {
+            margin-top: 50px;
+        }
+
+        p {
+            font-size: 1.5em;
+        }
+
+        /* ::first-line */
+        section.text-section p::first-line {
+            background-color: grey;
+            color: white;
+        }
+
+        /* ::first-letter */
+        section.text-section p::first-letter {
+            background-color: grey;
+            color: red;
+            font-size: 40px;
+        }
+
+        /* ::before */
+        section.list-section ul li::before {
+            content: "( ";
+            color: red;
+        }
+
+        /* ::after */
+        section.list-section ul li::after {
+            content: " )";
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <section class="text-section">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit, quas at. Vitae inventore suscipit
+                repudiandae delectus veritatis doloribus tenetur! Ducimus praesentium at sequi reprehenderit
+                voluptatibus quibusdam deserunt aspernatur beatae adipisci eos veritatis cupiditate tenetur cumque, hic
+                expedita eaque corporis maiores.</p>
+        </section>
+
+        <section class="list-section">
+            <ul>
+                <li>list element</li>
+                <li>list element</li>
+                <li>list element</li>
+                <li>list element</li>
+                <li>list element</li>
+            </ul>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+.shared {
+    font-size: 2em;
+    color: white;
+  }
+  
+  .first-box {
+    background-color: maroon;
+  }
+  
+  .second-box {
+    background-color: coral;
+    position: relative;
+    /* top: 3.5em; */
+  }
+  
+  .third-box {
+    background-color: darkslateblue;
+  }
+  
+  /* Absolute Positioning */
+  .parent {
+    /* 
+          if we don't position this element
+          the top, right, bottom, left, properties for the absolute positioned
+          elements inside it will be computed according to the next nearest ancestor
+       */
+    position: relative;
+  }
+  
+  .absolute-positioned {
+    background-color: goldenrod;
+    /* position: absolute;
+    top: 2em; */
+  }
+  
+  /* Fixed Position */
+  .fixed-element {
+    background-color: orange;
+    width: 4em;
+    font-size: 2em;
+    cursor: pointer;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+  }
+  
+  /* sticky position */
+  .sticky-menu {
+    background-color: teal;
+    padding: 5px;
+    position: sticky;
+    /* position: -webkit-sticky; Safari browser support */
+    top: 2em;
+    left: 50px;
+    width: 50%;
+    z-index: 2;
+  }
+  
+  /* move the word 'word' to the next line */
+  span.word {
+    position: relative;
+    top: 35px;
+    right: 80px;
+  }
+  
+  /* Float element */
+  
+  .float-left {
+    background-color: maroon;
+    float: left;
+  }
+  
+  .float-right {
+    background-color: green;
+    float: right;
+    height: 200px;
+  }
+  
+  .clear-floating {
+    clear: both;
+  }
+  
+  /* z-index */
+  .indexed-box1 {
+    position: relative;
+    width: 10em;
+    height: 10em;
+    top: 1em;
+    left: 8em;
+    background-color: gray;
+    z-index: 3;
+  }
+  
+  .inner-box1 {
+    position: relative;
+    width: 4em;
+    height: 4em;
+    margin: 1em;
+    background-color: turquoise;
+    z-index: 3;
+  }
+  
+  .inner-box2 {
+    position: relative;
+    width: 4em;
+    height: 4em;
+    bottom: 2em;
+    left: 3em;
+    background-color: tomato;
+    z-index: 3;
+  }
+  
+  .inner-box3 {
+    position: relative;
+    width: 4em;
+    height: 4em;
+    bottom: 4em;
+    left: 5em;
+    background-color: green;
+    z-index: 1;
+  }
+  
+  .indexed-box2 {
+    position: relative;
+    width: 8em;
+    height: 8em;
+    bottom: 4em;
+    left: 12em;
+    background-color: #666;
+    z-index: 1;
+  }
+  
