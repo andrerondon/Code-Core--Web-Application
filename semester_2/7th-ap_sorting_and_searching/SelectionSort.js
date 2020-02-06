@@ -22,26 +22,26 @@ function selectionSort(arr) {
 
   //////   brandon implementation
 
-//   function selectionSort(arr) {
-//     const sortedArr = [...arr];
-//     let subArrayIndex = 0;
-//     while(subArrayIndex < sortedArr.length) {
-//       let minValue = Infinity;
-//       let j = subArrayIndex;
-//       let minValueIndex;
-//       while(j < sortedArr.length) {
-//         if (sortedArr[j] < minValue) {
-//           minValue = sortedArr[j];
-//           minValueIndex = j;
-//         }
-//         j++
-//       }
-//       const currentZeroIndexValue = sortedArr[subArrayIndex];
-//       sortedArr[subArrayIndex] = minValue;
-//       sortedArr[minValueIndex] = currentZeroIndexValue;
-//       subArrayIndex++;
-//     }
-//     return sortedArr;
-//   }
+  function selectionSort(arr) {
+    const sortedArr = [...arr];
+    let subArrayIndex = 0;
+    while(subArrayIndex < sortedArr.length) {
+      let minValue = Infinity;
+      let j = subArrayIndex;
+      let minValueIndex;
+      while(j < sortedArr.length) {
+        if (sortedArr[j] < minValue) {
+          minValue = sortedArr[j];
+          minValueIndex = j;
+        }
+        j++
+      }
+      const currentZeroIndexValue = sortedArr[subArrayIndex];
+      sortedArr[subArrayIndex] = minValue;
+      sortedArr[minValueIndex] = currentZeroIndexValue;
+      subArrayIndex++;
+    }
+    return sortedArr;
+  }
   
-//   console.log(selectionSort([15,42,1,67,104,2,2,2]));
+  console.log(selectionSort([15,42,1,67,104,2,2,2]));
