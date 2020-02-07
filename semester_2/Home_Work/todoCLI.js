@@ -1,25 +1,29 @@
 const readline = require('readline');
 const chalk = require('chalk');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
 
 console.log(chalk.bgRed('Welcome to Todo CLI!'));
 
 
-console.log(chalk.yellow('--------------------------------------'));
+console.log(chalk.yellow('\n--------------------------------------'));
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    prompt: (chalk.yellow("\n(v) View • (n) New • (cX) Complete • (dX) Delete • (q) Quit\n"))
+  });
 
 rl.question(chalk.yellow('(v) View) • (n) New • (cX) Complete • (dX) Delete • (q) Quit \n '), (answer) => {
-    // console.log(` ${answer}`);
+    console.log(` ${answer}`);
 })
 
-// let name, age, favouriteColor;
 
-// rl.question(chalk.bgRed(''), (answer) => {
-  
-// })
+rl.on('SIGINT', () => {
+    rl.question('Are you sure you want to exit? ', (answer) => {
+      if (answer.match(/^y(es)?$/i)) rl.pause();
+    });
+  });
+
 
 
 
