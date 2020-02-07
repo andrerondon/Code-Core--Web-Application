@@ -6,13 +6,20 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-console.log(chalk.redBright('Hello world!'));
+console.log(chalk.bgRed('Welcome to Todo CLI!'));
 
-let name, age, favouriteColor;
 
-rl.question(chalk.bgRed('Lets make a To do list? \n'), (answer) => {
-  
+console.log(chalk.yellow('--------------------------------------'));
+
+rl.question(chalk.yellow('(v) View) • (n) New • (cX) Complete • (dX) Delete • (q) Quit \n '), (answer) => {
+    // console.log(` ${answer}`);
 })
+
+// let name, age, favouriteColor;
+
+// rl.question(chalk.bgRed(''), (answer) => {
+  
+// })
 
 
 
