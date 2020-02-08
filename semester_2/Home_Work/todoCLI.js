@@ -9,11 +9,28 @@ console.log(chalk.yellow('\n--------------------------------------'));
 
 const rl = readline.createInterface({
     input: process.stdin,
-    output: process.stdout,
-    prompt: (chalk.yellow("\n(v) View • (n) New • (cX) Complete • (dX) Delete • (q) Quit\n"))
+    output: process.stdout
+    // prompt: (chalk.yellow("\n(v) View • (n) New • (cX) Complete • (dX) Delete • (q) Quit\n"))
   });
+  
+  while (answer !== 'q')
 
 rl.question(chalk.yellow('(v) View) • (n) New • (cX) Complete • (dX) Delete • (q) Quit \n '), (answer) => {
+    
+        if (answer === 'v'){
+        
+        } if ( answer === 'n'){
+    
+        } if ( answer === 'cX'){
+            
+        } if ( answer === 'dX'){
+            
+        } if ( answer !== 'q'){
+            
+
+    
+    
+    }
     console.log(` ${answer}`);
 })
 
