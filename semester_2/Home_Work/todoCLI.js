@@ -12,7 +12,7 @@ const rl = readline.createInterface({
     output: process.stdout
     // prompt: (chalk.yellow("\n(v) View • (n) New • (cX) Complete • (dX) Delete • (q) Quit\n"))
   });
-  
+
   while (answer !== 'q')
 
 rl.question(chalk.yellow('(v) View) • (n) New • (cX) Complete • (dX) Delete • (q) Quit \n '), (answer) => {
@@ -61,3 +61,5 @@ rl.on('SIGINT', () => {
 // })
 
 // console.log(chalk.bgMagenta('Jugraj Color!'));
+
+//
