@@ -5,10 +5,19 @@ const fsPromises = require('fs').promises;
 // 1. hard to understand
 // 2. a lot of scopes so we have to becareful with variable names
 fs.readdir('./readMe', (err, files) => { // 1) read the directory
+  if (err) {
+    // do something
+  }
   // files = ['one.txt', 'two.txt'];
   files.forEach(file => {
     fs.readFile(`./readMe/${file}`, {encoding: 'utf8'}, (err, data) => { // 2) read the files within the directory
+      if (err) {
+        // do something
+      }
       fs.writeFile(`./readMe/copies/${file}`, data, (err) => { // 3) write the file to a copy
+        if (err) {
+          // do something
+        }
         console.log('wrote file');
       })
     })
