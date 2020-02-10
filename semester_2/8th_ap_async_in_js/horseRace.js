@@ -7,13 +7,18 @@ const delay = require('./delay');
 Promise.all([
   delay(10000, "blue"),
   delay(2000, "red"),
-  delay(3000, "green"),
+  delay(3000, "green"), // delay throws green
 ])
   .then(colors => {
-    colors.forEach(color => console.log(color));
     // Promise.all returns a thenable that contains an array of all the resolved values
     console.log(colors);
   })
+  .catch(err => {
+    // if any of the promises in the Promise.all array rejects the Promise.all is considered rejected
+    console.log(err);
+  })
 
 
- 
+// sequentially
+
+delay(1000, "1000")
