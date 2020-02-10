@@ -38,7 +38,7 @@ function coinFlip() {
       } else {
         rej(value);
       }
-    }, 3000)
+    }, 1000)
   });
 }
 
@@ -49,16 +49,30 @@ function coinFlip() {
 // }, 4000)
 
 // 
-const flipped = coinFlip()
-  .then((value) => { // a method that all promises have...
-    // .then only gets invoked if the promise resolves
-    // it accepts a callback
-    // the callback's argument is provided by the res call "res(value)" from the promise
-    console.log('THEN')
-    console.log(value);
-  })
-  .catch((value) => {
-    console.log('CATCH')
-    // .catch only gets invoked if the promise rejects
-    console.log(value);
-  })
+// const flipped = coinFlip()
+//   .then((value) => { // a method that all promises have...
+//     // .then only gets invoked if the promise resolves
+//     // it accepts a callback
+//     // the callback's argument is provided by the res call "res(value)" from the promise
+//     console.log('THEN')
+//     console.log(value);
+//   })
+//   .catch((value) => {
+//     console.log('CATCH')
+//     // .catch only gets invoked if the promise rejects
+//     console.log(value);
+//   })
+
+  coinFlip()
+    .then(value => {
+      console.log(value);
+      return coinFlip();
+    })
+    .then(value => {
+      console.log(value);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+
+    
