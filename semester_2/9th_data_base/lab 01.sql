@@ -183,6 +183,11 @@ SELECT first_name ||' ' || last_name as Name
 FROM students
 where age between 20 and 29
 
+6.  Same as #5, but label the first column "Full Name".
+
+SELECT first_name ||' ' || last_name as Name
+FROM students
+where age between 20 and 29
 
 ==DAY 1 Labs STOP HERE
 
