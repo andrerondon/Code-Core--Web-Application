@@ -3,6 +3,8 @@ FROM table
 WHERE condition
 ORDER BY column DESC
 LIMIT 10
+OFFSET 20
+
 
 SELECT *
 FROM students
@@ -107,3 +109,20 @@ FROM students
 WHERE first_name ILIKE 'MA%'
 ORDER BY id
 LIMIT 10
+
+--Selecting the third set of 10 students
+SELECT *
+FROM students
+ORDER BY id
+LIMIT 10
+OFFSET 20
+
+-- Select the second set of 20 students whose ages are more than 25 and are ordered ascending
+SELECT *
+FROM students
+WHERE age > 25
+ORDER BY age
+LIMIT 20
+OFFSET 20
+
+
