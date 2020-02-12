@@ -1,7 +1,8 @@
 SELECT *
 FROM table
 WHERE condition
-
+ORDER BY column DESC
+LIMIT 10
 
 SELECT *
 FROM students
@@ -63,12 +64,46 @@ SELECT *
 FROM students
 WHERE first_name IN ('Daphnee', 'Norma', 'Rene')
 
+/* This is the same as....
 first_name = 'Daphnee'
 OR first_name = 'Norma'
 OR first = 'Rene'
 
---Select all students whose age is one of 23, 26, or 29.
+But it takes less typing if the list is long
+*/
 
+--Select all students whose age is one of 23, 26, or 29.
 SELECT *
 FROM students
 WHERE age IN (23, 26, 29)
+
+-- order by multiple fields
+SELECT *
+FROM students
+WHERE first_name IN ('Daphnee', 'Norma', 'Rene')
+ORDER BY first_name, last_name DESC
+
+--Find students whose names begin with ‘no’ ordered by their first name then age in descending order.
+SELECT *
+FROM students
+WHERE first_name iLIKE 'no%'
+ORDER BY first_name, age DESC;
+
+--Find students whose ages are more than 30 ordered by their first names then last names
+SELECT *
+FROM students
+WHERE age > 30
+ORDER BY first_name, last_name
+
+
+--select first 10 students
+SELECT *
+FROM students
+LIMIT 10
+
+--Select the first 10 students whose first names start with `ma` (case insensitive)
+SELECT *
+FROM students
+WHERE first_name ILIKE 'MA%'
+ORDER BY id
+LIMIT 10
