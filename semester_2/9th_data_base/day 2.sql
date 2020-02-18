@@ -60,3 +60,94 @@ SELECT age, count(*) AS NumberOfStudentsWithThatAge
 FROM students
 GROUP BY age
 ORDER BY 2 DESC
+
+-------------------
+
+DAY 2 LAB
+
+Practice using Backup/Restore
+Follow the following website to practice taking a backup and restoring from it.
+https://o7planning.org/en/11913/backup-and-restore-postgres-database-with-pgadmin
+
+Assignment: [Lab] Queries Aggregates.
+Using data from this mornings lesson, write the following SQL Queries:
+For the products table:  (A product is on sale when the sale_price = price)
+
+1. Select the product whose stock has the most value (use sale price)
+
+SELECT sale_price * remaining_quantity AS stock_value, *
+FROM products
+order by sale_price * remaining_quantity Desc
+limit 1
+
+
+2. Select the most expensive product whose price is between 25 and 50 with, remaining quantity
+
+SELECT *
+FROM products
+where price BETWEEN 25 and 50
+ORDER by remaining_quantity > 0 Desc
+limit 1
+
+3. Select all products on sale with remaining quantity ordered by their price and then their name
+
+SELECT *
+FROM products
+where sale_price = price and remaining_quantity > 0
+ORDER by price, name
+
+
+4. Select the second set 20 results based on the previous query
+
+SELECT *
+FROM products
+where sale_price = price and remaining_quantity > 1
+ORDER by price, name
+limit 20
+offset 20
+
+
+
+
+
+5. Find the average price of all products.
+    STRETCH - Only show 2 decimal places.
+
+SELECT round (AVG(price) :: numeric, 2) 
+FROM products
+
+
+
+
+
+6. Find the average sale_price of all products that are on sale
+
+SELECT AVG(sale_price) 
+FROM products
+where sale_price = price
+
+
+
+7. Find the average price of all products that are on sale with remaining quantity
+
+SELECT AVG(sale_price) 
+FROM products
+where sale_price = price and remaining_quantity > 0
+
+
+
+8. Update all the products whose name contains `paper` (case insensitive) to increase the quantity by 3
+
+BEGIN TRANSACTION;
+UPDATE products
+SET remaining_quantity = remaining_quantity + 3
+WHERE name ILIKE '%paper%';
+SELECT remaining_quantity FROM products WHERE id = 113;  --SHOULD BE 10
+--COMMIT TRANSACTION
+--ROLLBACK TRANSACTION
+
+
+9. Update all the products whose name contains `paper` or `steel` to have a remaining quantity of a random number between 5 and 25 (SELECT floor(random() * 10 + 1)::int;) will return a random number between 1-10
+10. Select the second set of 10 cheapest products (by `price` or `sale_price`) with remaining quantity
+11. Build a query that groups the products by their sale price and show the number of products in that price and the sum of remaining quantity. Label the count `product_count`
+[stretch] Update the most expensive product to have double its quantity in a single query

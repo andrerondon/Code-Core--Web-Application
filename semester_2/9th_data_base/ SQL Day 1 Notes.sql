@@ -221,7 +221,7 @@ ORDER BY last_name, age DESC
 
 
 Assignment: [Lab] Queries Aggregates.
-Using data from this morning's lesson, write the following SQL Queries:
+Using data from this mornings lesson, write the following SQL Queries:
 
 For the products table:
 
