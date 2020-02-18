@@ -13,7 +13,7 @@ const rl = readline.createInterface({
     // prompt: (chalk.yellow("\n(v) View • (n) New • (cX) Complete • (dX) Delete • (q) Quit\n"))
   });
 
-  while (answer !== 'q')
+  // while (answer === 'q')
 
 rl.question(chalk.yellow('(v) View) • (n) New • (cX) Complete • (dX) Delete • (q) Quit \n '), (answer) => {
     
@@ -25,7 +25,7 @@ rl.question(chalk.yellow('(v) View) • (n) New • (cX) Complete • (dX) Delet
             
         } if ( answer === 'dX'){
             
-        } if ( answer !== 'q'){
+        } if ( answer === 'q'){
             
 
     

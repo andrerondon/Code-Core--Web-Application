@@ -20,6 +20,9 @@ LIMIT 15
 
 •	Select all students older than 30.  How many rows were returned?
 
+SELECT count (*)
+FROM students
+WHERE age > 30
 
 
 •	Select the first and last registered students.  What are their names?
@@ -27,7 +30,6 @@ SELECT *
 FROM students
 ORDER by registration_date desc
 LIMIT 1
-
 
 
 Assignment: [Lab] Products CRUD
