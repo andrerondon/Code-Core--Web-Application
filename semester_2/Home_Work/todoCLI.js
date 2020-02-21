@@ -1,65 +1,80 @@
-const readline = require('readline');
+const fs = require("fs");
+const readline = require("readline");
 const chalk = require('chalk');
-
 
 console.log(chalk.bgRed('Welcome to Todo CLI!'));
 
 
-console.log(chalk.yellow('\n--------------------------------------'));
+console.log(chalk.red('\n--------------------------------------'));
 
 const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-    // prompt: (chalk.yellow("\n(v) View • (n) New • (cX) Complete • (dX) Delete • (q) Quit\n"))
-  });
+  input: process.stdin,
+  output: process.stdout,
+  prompt: chalk.yellow("\n(v) View • (n) New • (c) Complete • (d) Delete • (q) Quit\n")
+});
 
-  // while (answer === 'q')
-
-rl.question(chalk.yellow('(v) View) • (n) New • (cX) Complete • (dX) Delete • (q) Quit \n '), (answer) => {
-    
-        if (answer === 'v'){
-        
-        } if ( answer === 'n'){
-    
-        } if ( answer === 'cX'){
-            
-        } if ( answer === 'dX'){
-            
-        } if ( answer === 'q'){
-            
-
-    
-    
+class Todo {
+  constructor(name) {
+    this.name = name;
+    this.completed = false;
+  }
+  complete() {
+    this.completed = true;
+  }
+  brackets() {
+    if (this.completed) {
+      return "[✓]";
+    } else {
+      return "[ ]";
     }
-    console.log(` ${answer}`);
-})
+  }
+  print() {
+    return `${this.brackets()} ${this.name}`;
+  }
+}
 
+let newArr = [];
 
-rl.on('SIGINT', () => {
-    rl.question('Are you sure you want to exit? ', (answer) => {
-      if (answer.match(/^y(es)?$/i)) rl.pause();
-    });
-  });
+rl.prompt();
 
+rl.on("line", line => {
+  let userInput = line.trim();
+  switch (userInput) {
+    case "v":
+      if (newArr.length === 0) {
+        console.log("List is empty");
+      } else {
+        for (let i = 0; i < newArr.length; i++) {
+          console.log(`${i} | ${newArr[i].print()}`);
+        }
+      }
+      break;
 
+    case "n":
+      rl.question("What?\n", answer => {
+        newArr.push(new Todo(answer));
+        rl.prompt();
+      });
+      break;
 
+    case userInput.match(/^c/) && userInput:
+      let itemIndex = userInput.slice(1);
+      newArr[itemIndex].complete();
+      console.log(`Completed ${newArr[itemIndex].name}`);
+      break;
 
+    case userInput.match(/^d/) && userInput:
+      let itemIndexDelete = userInput.slice(1);
+      console.log(`Deleted ${newArr[itemIndexDelete].name}`);
+      newArr.splice(itemIndexDelete, 1);
+      break;
 
+    case "q":
+        rl.question(chalk.bgRed('Are you sure you want to exit? '), (answer) => {
+            if (answer.match(/^y(es)?$/i)) rl.pause();
+          });
+      break;
 
-// const l = console.log;
-// rl.question(chalk.bgMagenta('What color would you like to see?'), answer => {
-//   if (answer === 'red') {
-//     l(chalk.red(answer));
-//   } 
-//   if (answer === 'blue') {
-//     l(chalk.blue(answer));
-//   }
-//   if (answer === 'green') {
-//     l(chalk.green(answer));
-//   }
-//   rl.close();
-// })
-
-// console.log(chalk.bgMagenta('Jugraj Color!'));
-
-//
+  }
+  rl.prompt();
+});
