@@ -10,7 +10,7 @@ console.log(chalk.red('\n--------------------------------------'));
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-  prompt: chalk.yellow("\n(v) View • (n) New • (c) Complete • (d) Delete • (q) Quit\n")
+   prompt: chalk.yellow("\n(v) View • (n) New • (c) Complete • (d) Delete • (q) Quit\n")
 });
 
 class Todo {
@@ -37,7 +37,12 @@ let newArr = [];
 
 rl.prompt();
 
+
 rl.on("line", line => {
+  // console.log(line)
+  // console.log("I got here");
+  
+  
   let userInput = line.trim();
   switch (userInput) {
     case "v":
@@ -60,6 +65,8 @@ rl.on("line", line => {
     case userInput.match(/^c/) && userInput:
       let itemIndex = userInput.slice(1);
       newArr[itemIndex].complete();
+      
+      
       console.log(`Completed ${newArr[itemIndex].name}`);
       break;
 

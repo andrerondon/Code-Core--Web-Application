@@ -12,7 +12,7 @@ function removeDups(arr) {
   return noDuplicates;
 }
 
-using nested loop
+//using nested loop
 
 function removeDups(arr) {
     const noDuplicates = [];
@@ -22,7 +22,7 @@ function removeDups(arr) {
         noDuplicates.push(currentElement);
       }
       for (let j = 0; j <= noDuplicates.length; j++) {
-        console.log(noDuplicates[j], currentElement);
+        //console.log(noDuplicates[j], currentElement);
         if (noDuplicates[j] === currentElement) {
           break;
         }
