@@ -77,10 +77,7 @@ rl.on("line", line => {
       break;
 
     case "q":
-        rl.question(chalk.bgRed('Are you sure you want to exit? '), (answer) => {
-            if (answer.match(/^y(es)?$/i)) rl.pause();
-            console.log(chalk.yellow("See you soon! 😄"));
-          });
+        
       break;
 
   }

@@ -1,0 +1,11 @@
+{
+  "name": "12th_project_node_http_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andre Rondon",
+  "license": "ISC"
+}
