@@ -16,7 +16,7 @@
       res.write(
         "<main>" +
           "<h1> Contact us </h1>" +
-          "<form action='/thank_you'>" +
+          "<form action='/thank_you'>" +  // that is paht to thank you
             "<label for='firstname'>firstname</label>" +
             "<input type='text' name='firstname'/>" +
             "<br>" +
