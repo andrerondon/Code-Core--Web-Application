@@ -20,24 +20,35 @@ const qs = require ('query-string');
       const resource = `${req.method} ${pathname}` // GET /contact_us or POST /thank_you
 
       console.log(resource);
-      if (resource === '/thank_you') {
+
+      if (resource === 'GET /stylesheet') {
+        res.writeHead(200, {'content-type': 'text/css'});
+        res.write('h1 {color: blue; font-size: 50px}')
+        return res.end();
+      }
+      if (resource === 'POST /thank_you') {
         res.write(`Thank you ${req.body.firstname} for your question: ${req.body.question}`)
         return res.end();
       }
       if (resource === 'GET /contact_us') {
         res.write(
-          "<main>" +
-            "<h1> Contact us </h1>" +
-            "<form action='/thank_you' method = 'POST' >" +  // that is paht to thank you
-              "<label for='firstname'>firstname</label>" +
-              "<input type='text' name='firstname'/>" +
-              "<br>" +
-              "<label for='question'>question</label>" +
-              "<textarea type='text' name='question'></textarea>" +
-              "<br>" +
-              "<input type='submit' value='submit'/>" +
-            "</form>" +
-          "</main>"
+          "<html>" +
+            "<head>" +
+              "<link rel='stylesheet' type='text/css' href='/stylesheet'>" +
+            "</head>" +
+              "<main>" +
+                "<h1> Contact us </h1>" +
+                  "<form action='/thank_you' method = 'POST' >" +  // that is paht to thank you
+                      "<label for='firstname'>firstname</label>" +
+                      "<input type='text' name='firstname'/>" +
+                      "<br>" +
+                      "<label for='question'>question</label>" +
+                      "<textarea type='text' name='question'></textarea>" +
+                      "<br>" +
+                      "<input type='submit' value='submit'/>" +
+                  "</form>" +
+              "</main>"+
+         "</html>"
         )
         return res.end();
       }
