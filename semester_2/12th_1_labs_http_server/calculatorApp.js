@@ -1,12 +1,17 @@
 const http = require("http");
 const url = require('url');
-
+const html = require ('./something')
 
 
 const server = http.createServer((request, response) => { 
   const {pathname, query} = url.parse(request.url, true); 
   console.log(query)
   response.writeHead(200, {'content-type': 'text/html'});
+  
+  if (pathname === '/style') {
+    res.writeHead(200, {'content-type': 'text/css'});
+    res.write('h1 {color: green; font-size: 50px}')
+  }
 
 
   if (pathname === '/calculator') {
@@ -23,36 +28,15 @@ const server = http.createServer((request, response) => {
     if (query.operators === "subtract"){
       calc = (parseInt(query.First_Number) - parseInt(query.Second_Number))
     }
-          response.write(
-            "<main>" +
-              "<h1> Calculator </h1>" +
-              "<form action='/calculator'>" +
-                "<label for='First_Number'>  First Number  </label>" +
-                "<input type='number' name='First_Number'/>" +
-                "<br>" +
-                  "<label for='operators'>operator</label>" +
-                  "<select name='operators'>"+
-                      '<option value="sum">+</option>'+
-                      '<option value="multiply">X</option>'+
-                      '<option value="divide">%</option>'+
-                      '<option value="subtract">-</option>'+
-                  "</select>"+
-                  "<label for='Second_Number'>  Second Number  </label>" +
-                "<input type='number' name='Second_Number'/>" +
-                "<br>" +
-                  "<input type='submit' value='submit'/>" +
-              "</form>" +
-            
-            "</main>"
-          )
-        response.write(`<main><h1>Result: ${calc}</main>`);
-        response.end(); 
-
+      response.write(html)  
+      response.write(`<main><h1>Result: ${calc}</main>`);
+      response.end(); 
   }  
   
-    
-       
   });
+
+//  <link rel="stylesheet" type="text/css" href="theme.css">
+
 
 const PORT = 5100;
 const DOMAIN = 'localhost';
