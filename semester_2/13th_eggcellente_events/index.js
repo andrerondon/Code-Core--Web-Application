@@ -1,9 +1,17 @@
 const express = require('express')
+const logger = require('morgan')
 
 const app = express();
 
-// Routes
+// Middleware
+// Middleware are functions that sit inside of a request/reponse cycle that are used to change the request response objects or execute code between the request and response
 
+// Morgan Middleware - used for logging requests
+// the location of where you invoke/mount the middleware matters. If you need certain middleware to run before something then make sure it is invoked before
+app.use(logger('dev'))
+
+
+// Routes
 // GET "/"
 app.get('/', (req, res) => {
   res.send("<h1>Hello World</h1>")
