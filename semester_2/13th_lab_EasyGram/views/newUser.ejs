@@ -35,13 +35,39 @@
         </div>
        
         <div class="password" >
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <label for="password1"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password1" required>
         </div>
         <div class="password_confirmation">
-            <label for="psw"><b>Confirm your Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <label for="password2"><b>Confirm your Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password2" required>
         </div>
+        <%- // Function to check Whether both passwords 
+        // is same or not. 
+        function checkPassword(form) { 
+            password1 = form.password1.value; 
+            password2 = form.password2.value; 
+
+            // If password not entered 
+            if (password1 === '') 
+                alert ("Please enter Password"); 
+                  
+            // If confirm password not entered 
+            else if (password2 === '') 
+                alert ("Please enter confirm password"); 
+                  
+            // If Not same return False.     
+            else if (password1 != password2) { 
+                alert ("\nPassword did not match: Please try again...") 
+                return false; 
+            } 
+
+            // If same return True. 
+            else{ 
+                alert("Password Match: Welcome to GeeksforGeeks!") 
+                return true; 
+            } 
+        } %>
         <br>
         <input type="submit" value="send">
       </form>
