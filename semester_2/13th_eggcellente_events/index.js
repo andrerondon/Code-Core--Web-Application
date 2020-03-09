@@ -23,8 +23,19 @@ app.get('/', (req, res) => {
 
 // When somebody goes to "GET localhost:3000/survey"
 app.get('/survey', (req, res) => {
-  res.send("<h1>Survey</h1>")
+    res.render('survey.ejs')
 })
+
+app.get('/memes', (req, res) => {
+    res.render('memes.ejs', {
+      title: "Welcome to the meme page",
+      memes: [
+        "https://www.probytes.net/wp-content/uploads/2018/01/2.jpg",
+        "https://www.probytes.net/wp-content/uploads/2018/01/20.png",
+        "https://www.probytes.net/wp-content/uploads/2018/01/r_389776_tqMPa-1.jpg",
+      ]
+    })
+  })
 
 const PORT = 3000
 const DOMAIN = 'localhost'
