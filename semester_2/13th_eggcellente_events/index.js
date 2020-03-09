@@ -6,7 +6,12 @@ const app = express();
 
 // GET "/"
 app.get('/', (req, res) => {
-  res.send("Hello World")
+  res.send("<h1>Hello World</h1>")
+})
+
+// When somebody goes to "GET localhost:3000/survey"
+app.get('/survey', (req, res) => {
+  res.send("<h1>Survey</h1>")
 })
 
 const PORT = 3000
