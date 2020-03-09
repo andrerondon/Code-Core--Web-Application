@@ -1,5 +1,5 @@
 {
-  "name": "wadd_september_2019_eggcellent_events",
+  "name": "13th_eggcellente_events",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.0.1",
     "express": "^4.17.1"
   },
   "devDependencies": {
