@@ -9,4 +9,20 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    const { title, description } = req.body
+    knex.insert({title, description}).into('events')
+      .then(() => {
+        res.redirect('/events')
+      })
+      .catch(() => {
+        res.render('events/new')
+      })
+  })
+
+
+router.get('/new', (req, res) => {
+  res.render('events/new')
+})
+
 module.exports = router
