@@ -1,5 +1,6 @@
 const express = require('express')
 const logger = require ('morgan')
+const knex = require('./db/client')
 
 const app = express();
 
@@ -25,6 +26,14 @@ app.post('/users/new', (req, res) => {
   })
 
   
+// Events Index Page
+app.get('/events', (req, res) => {
+  knex.select('*').from('events')
+    .then(events => {
+      res.render('events/index', {events})
+    })
+})
+
 
 const PORT = 4200
 const DOMAIN = 'localhost'

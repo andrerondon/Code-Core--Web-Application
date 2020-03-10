@@ -1,4 +1,5 @@
 const faker = require('faker') // why is this faker?
+// why this seed file?
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
