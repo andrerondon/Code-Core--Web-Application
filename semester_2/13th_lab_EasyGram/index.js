@@ -1,45 +1,43 @@
 const express = require('express')
 const logger = require('morgan')
-// const knex = require('./db/client')
-const eventsRouter = require('./routes/events')
 
-const app = express()
-
-app.set('view engine', 'ejs') // sets the "view engine" configuration to use 'ejs'. IE Telling ExpressJS to use EJS as our views
-app.set('views', 'views') // tell express our view files are in a directory called views
+const app = express();
 
 app.use(logger('dev'))
-app.use(express.urlencoded({ extended: true }))
 
-////////Routers/////////////
+app.set('view engine', 'ejs')
+app.set('views', 'views');
 
-app.use('/events', eventsRouter)
+app.use(express.urlencoded({extended: true}))
 
 app.get('/', (req, res) => {
-  console.log(req.query)
-  res.render('welcome.ejs')
+  res.render('welcome')
 })
 
 app.get('/users/new', (req, res) => {
-  console.log(req.query)
-  res.render('newUser.ejs')
+  res.render('users/new.ejs')
 })
 
-app.post('/users/new', (req, res) => {
-  console.log(req.body)
-  res.send(`thank you ${req.body.First_name} ${req.body.Last_name}`)
+app.post('/users', (req, res) => {
+  const 
+  { firstname,
+    lastname,
+    email,
+    password,
+    passwordConfirmation
+  } = req.body
+  if (password === passwordConfirmation) {
+    res.send(`
+    Thanks for signing up ${firstname} ${lastname}! We'll make sure we keep your password: ${password} and email: ${email} safe!
+    `)
+  } else {
+    res.render('users/new.ejs')
+  }
 })
 
-// Events Index Page
-// app.get('/events', (req, res) => {
-//   knex.select('*').from('events')
-//     .then(events => {
-//       res.render('events/index', {events})
-//     })
-// })
-
-const PORT = 4200
+const PORT = 3001
 const DOMAIN = 'localhost'
+
 app.listen(PORT, DOMAIN, () => {
-  console.log(`Server Listening on ${DOMAIN}:${PORT}`)
+  console.log(`Listening on ${DOMAIN}:${PORT}`)
 })
