@@ -52,7 +52,8 @@
         password2 = form.password2.value; 
         if (password1.length < 3) {
             alert ("Provide a Password with 3 or more words"); 
-        }else if (password1 != password2) { 
+        }
+        if (password1 != password2) { 
             alert ("\nPassword did not match: Please try again...") 
             return false; 
         }else{ 
