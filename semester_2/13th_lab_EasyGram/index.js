@@ -1,6 +1,8 @@
 const express = require('express')
-const logger = require ('morgan')
+const logger = require('morgan')
 const knex = require('./db/client')
+const eventsRouter = require('./routes/events')
+
 
 const app = express();
 
@@ -9,6 +11,10 @@ app.set ('views', 'views')
 
 app.use(logger('dev'))
 app.use(express.urlencoded({extended: true}))
+
+//////// Routers//////////////
+
+app.use('/events', eventsRouter)
 
 app.get('/', (req, res) => {
     console.log(req.query);
@@ -27,12 +33,12 @@ app.post('/users/new', (req, res) => {
 
   
 // Events Index Page
-app.get('/events', (req, res) => {
-  knex.select('*').from('events')
-    .then(events => {
-      res.render('events/index', {events})
-    })
-})
+// app.get('/events', (req, res) => {
+//   knex.select('*').from('events')
+//     .then(events => {
+//       res.render('events/index', {events})
+//     })
+// })
 
 
 const PORT = 4200
