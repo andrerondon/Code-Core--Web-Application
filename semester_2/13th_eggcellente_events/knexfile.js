@@ -5,13 +5,16 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      database: 'easygram'
+      database: 'eggcellent_events_wadd_1'
       // username,
       // password
     },
     migrations: {
       directory: './db/migrations',
       tableName: 'knex_migrations'
+    },
+    seeds: {
+      directory: './db/seeds'
     }
   }
 

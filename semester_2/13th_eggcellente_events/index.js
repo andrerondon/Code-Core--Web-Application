@@ -1,7 +1,8 @@
 const express = require('express')
 const logger = require('morgan')
+const eventsRouter = require('./routes/events')
 
-const app = express();
+const app = express()
 
 app.set('view engine', 'ejs') // sets the "view engine" configuration to use 'ejs'. IE Telling ExpressJS to use EJS as our views
 app.set('views', 'views') // tell express our view files are in a directory called views
@@ -14,7 +15,12 @@ app.set('views', 'views') // tell express our view files are in a directory call
 app.use(logger('dev'))
 app.use(express.urlencoded({extended: true})) // middleware for parsing HTTP POST request's body. It will put all the data from a POST request into a property `req.body`
 
-// Routes
+/ Routes
+
+// Event Router
+// If someone goes to /events... use eventsRouter
+app.use('/events', eventsRouter)
+
 // GET "/"
 app.get('/', (req, res) => {
   // res.send("<h1>Hello World</h1>")
@@ -30,20 +36,32 @@ app.get('/survey', (req, res) => {
 })
 
 app.post('/survey', (req, res) => {
-  console.log(req.body)
-  res.send('thank you')   //  to get the form POSTED this is for post
+  console.log(req.body) // once we have the express.urlencoded middleware setup we can grab data from req.body
+  res.send('thank you')
 })
 
 app.get('/memes', (req, res) => {
   res.render('memes.ejs', {
-    title: "Welcome to the meme page",
+    title: 'Welcome to the meme page',
     memes: [
-      "https://www.probytes.net/wp-content/uploads/2018/01/2.jpg",
-      "https://www.probytes.net/wp-content/uploads/2018/01/20.png",
-      "https://www.probytes.net/wp-content/uploads/2018/01/r_389776_tqMPa-1.jpg",
+      'https://www.probytes.net/wp-content/uploads/2018/01/2.jpg',
+      'https://www.probytes.net/wp-content/uploads/2018/01/20.png',
+      'https://www.probytes.net/wp-content/uploads/2018/01/r_389776_tqMPa-1.jpg'
     ]
   })
 })
+
+// Events Index Page
+// app.get('/events', (req, res) => {
+//   knex.select('*').from('events')
+//     .then(events => {
+//       res.render('events/index', {events})
+//     })
+// })
+
+
+
+
 const PORT = 3000
 const DOMAIN = 'localhost'
 app.listen(PORT, DOMAIN, () => {

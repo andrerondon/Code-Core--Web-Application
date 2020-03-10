@@ -1,37 +1,35 @@
 const express = require('express')
 const logger = require('morgan')
-const knex = require('./db/client')
+// const knex = require('./db/client')
 const eventsRouter = require('./routes/events')
 
+const app = express()
 
-const app = express();
-
-app.set ('view engine', 'ejs')
-app.set ('views', 'views')
+app.set('view engine', 'ejs') // sets the "view engine" configuration to use 'ejs'. IE Telling ExpressJS to use EJS as our views
+app.set('views', 'views') // tell express our view files are in a directory called views
 
 app.use(logger('dev'))
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 
-//////// Routers//////////////
+////////Routers/////////////
 
 app.use('/events', eventsRouter)
 
 app.get('/', (req, res) => {
-    console.log(req.query);
-    res.render('welcome.ejs') 
-  })
+  console.log(req.query)
+  res.render('welcome.ejs')
+})
 
 app.get('/users/new', (req, res) => {
-    console.log(req.query);
-    res.render('newUser.ejs') 
-  })
+  console.log(req.query)
+  res.render('newUser.ejs')
+})
 
 app.post('/users/new', (req, res) => {
-    console.log(req.body)
-    res.send(`thank you ${req.body.First_name} ${req.body.Last_name}`)
-  })
+  console.log(req.body)
+  res.send(`thank you ${req.body.First_name} ${req.body.Last_name}`)
+})
 
-  
 // Events Index Page
 // app.get('/events', (req, res) => {
 //   knex.select('*').from('events')
@@ -40,10 +38,8 @@ app.post('/users/new', (req, res) => {
 //     })
 // })
 
-
 const PORT = 4200
 const DOMAIN = 'localhost'
 app.listen(PORT, DOMAIN, () => {
   console.log(`Server Listening on ${DOMAIN}:${PORT}`)
 })
-
