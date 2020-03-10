@@ -22,10 +22,9 @@ app.get('/users/new', (req, res) => {
 app.post('/users/new', (req, res) => {
     console.log(req.body)
     res.send(`thank you ${req.body.First_name} ${req.body.Last_name}`)
-    
-       
   })
 
+  
 
 const PORT = 4200
 const DOMAIN = 'localhost'

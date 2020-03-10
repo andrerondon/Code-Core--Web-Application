@@ -6,7 +6,7 @@
     <title>New User</title>
 </head>
 <style>
-    .password{
+    div{
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -14,11 +14,11 @@
         border: 1px solid #ccc;
         box-sizing: border-box;
     }
-
+   
 
 </style>
 <body>
-    <form method="POST">
+    <form onSubmit = "return checkPassword(this)"  method="POST" > 
         <div class="First_name">
           <label for="First_name"><b>First Name</b></label>
           <input type="text" placeholder="Enter First Name" name="First_name" required>
@@ -42,35 +42,28 @@
             <label for="password2"><b>Confirm your Password</b></label>
             <input type="password" placeholder="Enter Password" name="password2" required>
         </div>
-        <%- // Function to check Whether both passwords 
-        // is same or not. 
-        function checkPassword(form) { 
-            password1 = form.password1.value; 
-            password2 = form.password2.value; 
-
-            // If password not entered 
-            if (password1 === '') 
-                alert ("Please enter Password"); 
-                  
-            // If confirm password not entered 
-            else if (password2 === '') 
-                alert ("Please enter confirm password"); 
-                  
-            // If Not same return False.     
-            else if (password1 != password2) { 
-                alert ("\nPassword did not match: Please try again...") 
-                return false; 
-            } 
-
-            // If same return True. 
-            else{ 
-                alert("Password Match: Welcome to GeeksforGeeks!") 
-                return true; 
-            } 
-        } %>
+       
         <br>
         <input type="submit" value="send">
       </form>
 
 </body>
+<script>       
+    function checkPassword(form) { 
+        password1 = form.password1.value; 
+        password2 = form.password2.value; 
+        if (password1 === '') {
+            alert ("Please enter Password"); 
+        }else if (password2 === '') {
+            alert ("Please enter confirm password"); 
+        }else if (password1 != password2) { 
+            alert ("\nPassword did not match: Please try again...") 
+            return false; 
+        }else{ 
+            alert("Password Match") 
+            return true; 
+        } 
+    } 
+</script> 
+
 </html>
