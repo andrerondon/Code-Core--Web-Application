@@ -6,16 +6,14 @@
     <title>New User</title>
 </head>
 <style>
-    div{
+    /* div{
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
         display: inline-block;
         border: 1px solid #ccc;
         box-sizing: border-box;
-    }
-   
-
+    } */
 </style>
 <body>
     <form onSubmit = "return checkPassword(this)"  method="POST" > 
@@ -52,10 +50,8 @@
     function checkPassword(form) { 
         password1 = form.password1.value; 
         password2 = form.password2.value; 
-        if (password1 === '') {
-            alert ("Please enter Password"); 
-        }else if (password2 === '') {
-            alert ("Please enter confirm password"); 
+        if (password1.length < 3) {
+            alert ("Provide a Password with 3 or more words"); 
         }else if (password1 != password2) { 
             alert ("\nPassword did not match: Please try again...") 
             return false; 
