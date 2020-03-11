@@ -1,8 +1,8 @@
 const express = require('express')
 const logger = require('morgan')
 const usersRouter = require('./routes/grams')
-const gramsRouter = require('./routes/grams')
-// const eventsRouter = require('./routes/events')
+// const gramsRouter = require('./routes/grams')
+
 const app = express();
 
 // app.set('view engine', 'ejs') // sets the "view engine" configuration to use 'ejs'. IE Telling ExpressJS to use EJS as our views
@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }))
 
 ////////Routers/////////////
 
+app.use('/grams', usersRouter)
 
 app.use('/', usersRouter)
 // app.use('/events', eventsRouter)
@@ -24,11 +25,13 @@ app.use('/', usersRouter)
 //   console.log(req.query)
 //   res.render('welcome.ejs')
 // })
-app.use('/users/new', usersRouter)
 
-// app.get('/users/new', (req, res) => {
-//   res.render('users/newUser.ejs')
-// })
+// app.use('/users/new', usersRouter)
+
+
+app.get('/users/new', (req, res) => {
+  res.render('users/newProfile.ejs')
+})
 
 app.post('/users', (req, res) => {
   console.log(req.body)
@@ -57,8 +60,8 @@ app.post('/users', (req, res) => {
 //   }
 // })
 
-// app.use('/grams', usersRouter)
-app.use('/grams', gramsRouter)
+
+
 
 const PORT = 4200
 const DOMAIN = 'localhost'

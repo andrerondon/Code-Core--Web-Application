@@ -13,9 +13,9 @@ app.set('views', 'views') // tell express our view files are in a directory call
 // Morgan Middleware - used for logging requests
 // the location of where you invoke/mount the middleware matters. If you need certain middleware to run before something then make sure it is invoked before
 app.use(logger('dev'))
-app.use(express.urlencoded({extended: true})) // middleware for parsing HTTP POST request's body. It will put all the data from a POST request into a property `req.body`
+app.use(express.urlencoded({ extended: true })) // middleware for parsing HTTP POST request's body. It will put all the data from a POST request into a property `req.body`
 
-/ Routes
+// Routes
 
 // Event Router
 // If someone goes to /events... use eventsRouter
@@ -51,19 +51,22 @@ app.get('/memes', (req, res) => {
   })
 })
 
-// Events Index Page
-// app.get('/events', (req, res) => {
-//   knex.select('*').from('events')
-//     .then(events => {
-//       res.render('events/index', {events})
-//     })
-// })
-
-
-
-
 const PORT = 3000
 const DOMAIN = 'localhost'
+
 app.listen(PORT, DOMAIN, () => {
   console.log(`Server Listening on ${DOMAIN}:${PORT}`)
 })
+
+// Morning Folks, Wednesday March 11. We'll start lecture at 9:30am
+
+// Todays agenda:
+// Refactoring Business Logic into Controllers
+// Refactoring Business Logic into Models
+// Static Middleware
+// Custom Middleware
+
+// Controller
+// - responsible for handling a request
+// - get resources. Example,  it will ask the Model to query some data from the database
+// - make responses. For example, it will render a View.
