@@ -26,18 +26,21 @@ app.use('/', usersRouter)
 //   res.render('welcome.ejs')
 // })
 
-// app.use('/users/new', usersRouter)
+app.use('/users/new', usersRouter)
 
 
-app.get('/users/new', (req, res) => {
-  res.render('users/newProfile.ejs')
-})
+// app.get('/users/new', (req, res) => {
+//   res.render('users/newProfile.ejs')
+// })
 
-app.post('/users', (req, res) => {
-  console.log(req.body)
-  res.send(`thank you ${req.body.First_name} ${req.body.Last_name}`)
-  res.render('users/newProfile.ejs')
-})
+// app.post('/users', (req, res) => {
+//   console.log(req.body)
+//   res.send(`thank you ${req.body.First_name} ${req.body.Last_name}`)
+//   res.render('users/newProfile.ejs')
+// })
+
+/////// Brandon Solution //////
+
 
 // app.get('/users/new', (req, res) => {
 //   res.render('users/new.ejs')

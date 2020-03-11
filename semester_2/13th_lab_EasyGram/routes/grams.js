@@ -11,6 +11,18 @@ router.get('/', (req, res) =>{
 
 })
 
+router.get('/users/new', (req, res) => {
+    res.render('users/newProfile.ejs')
+  })
+  
+router.post('/users', (req, res) => {
+    console.log(req.body)
+    res.send(`thank you ${req.body.First_name} ${req.body.Last_name}`)
+    res.render('users/newProfile.ejs')
+  })
+
+
+
 // router.post('/', (req, res) => {
 //   const { srcUrl, description } = req.body
 //   knex.insert({ srcUrl, description }).into('grams')
@@ -38,7 +50,7 @@ router.get('/', (req, res) =>{
 
 // })
 router.get('/grams', (req, res) => {
-    res.render('users/NewEasyGrams.ejs')
+    res.render('users/newProfile.ejs')
   })
 
 module.exports = router
