@@ -57,6 +57,8 @@ app.post('/users', (req, res) => {
 //   }
 // })
 
+app.use('/grams', usersRouter)
+// app.use('/grams', gramsRouter)
 
 const PORT = 4200
 const DOMAIN = 'localhost'
