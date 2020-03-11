@@ -11,4 +11,13 @@ router.get('/', (req, res) =>{
 
 })
 
+router.get('/users/new', (req, res) =>{
+    knex.select('*').from('grams')
+    .then (grams => {
+        res.render('users/newUser.ejs',{ grams })
+    })
+
+})
+
+
 module.exports = router

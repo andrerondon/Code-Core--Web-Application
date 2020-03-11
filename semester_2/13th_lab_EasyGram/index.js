@@ -7,26 +7,28 @@ const app = express();
 
 // app.set('view engine', 'ejs') // sets the "view engine" configuration to use 'ejs'. IE Telling ExpressJS to use EJS as our views
 // app.set('views', 'views') // tell express our view files are in a directory called views
-app.use('/users', usersRouter)
+
 app.use(logger('dev'))
 app.use(express.urlencoded({ extended: true }))
 
 ////////Routers/////////////
 
+
+app.use('/', usersRouter)
 // app.use('/events', eventsRouter)
+// app.get('/', (req, res) => {
+//   res.render('welcome')
+// })
 
-app.get('/', (req, res) => {
-  res.render('welcome')
-})
+// app.get('/', (req, res) => {
+//   console.log(req.query)
+//   res.render('welcome.ejs')
+// })
+app.use('/users/new', usersRouter)
 
-app.get('/', (req, res) => {
-  console.log(req.query)
-  res.render('welcome.ejs')
-})
-
-app.get('/users/new', (req, res) => {
-  res.render('users/newUser.ejs')
-})
+// app.get('/users/new', (req, res) => {
+//   res.render('users/newUser.ejs')
+// })
 
 app.post('/users', (req, res) => {
   console.log(req.body)
