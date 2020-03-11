@@ -1,7 +1,7 @@
 const express = require('express')
 const logger = require('morgan')
 const eventsRouter = require('./routes/events')
-
+const noMonkey = require('./middleware/noMonkey')
 const app = express()
 
 app.set('view engine', 'ejs') // sets the "view engine" configuration to use 'ejs'. IE Telling ExpressJS to use EJS as our views
@@ -15,7 +15,7 @@ app.set('views', 'views') // tell express our view files are in a directory call
 app.use(logger('dev'))
 app.use(express.static('public')) // install express static middleware https://expressjs.com/en/4x/api.html#express.static
 app.use(express.urlencoded({ extended: true })) // middleware for parsing HTTP POST request's body. It will put all the data from a POST request into a property `req.body`
-
+app.use(noMonkey)    // going to noMonkey in middleware
 
 // Routes
 
