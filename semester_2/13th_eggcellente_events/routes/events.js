@@ -1,13 +1,13 @@
 const express = require('express')
-const { events } = require('../controllers')
+const { event } = require('../controllers')
 
 const router = express.Router()
 
-router.get('/', events.index)
+router.get('/', event.index)
 
-router.post('/', events.create)
+router.post('/', event.create)
 
 // refactor this router to use the controller
-router.get('/new', events.new)
+router.get('/new', event.new)
 
 module.exports = router

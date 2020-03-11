@@ -3,8 +3,8 @@ const { event } = require('../models')
 module.exports = {
   index: (req, res) => {
     event.all()
-      .then(events => {
-        res.render('events/index', { events })
+      .then(event => {
+        res.render('events/index', { event })
       })
     // knex.select('*').from('events')
     //   .then(events => {
