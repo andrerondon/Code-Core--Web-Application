@@ -7,7 +7,8 @@ exports.seed = function (knex) {
       // Inserts seed entries
       return knex('grams').insert(new Array(50).fill().map(() => {
         return {
-          title: `${faker.image.imageUrl()}`
+          srcUrl: `${faker.image.avatar()}`,
+          description: `${faker.lorem.sentence()}`
         }
       }))
     })
