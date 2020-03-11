@@ -1,7 +1,7 @@
 const express = require('express')
 const logger = require('morgan')
 const usersRouter = require('./routes/grams')
-// const gramsRouter = require('./routes/grams')
+const gramsRouter = require('./routes/grams')
 // const eventsRouter = require('./routes/events')
 const app = express();
 
@@ -33,7 +33,7 @@ app.use('/users/new', usersRouter)
 app.post('/users', (req, res) => {
   console.log(req.body)
   res.send(`thank you ${req.body.First_name} ${req.body.Last_name}`)
-  res.render('users/newUser.ejs')
+  res.render('users/newProfile.ejs')
 })
 
 // app.get('/users/new', (req, res) => {
@@ -57,8 +57,8 @@ app.post('/users', (req, res) => {
 //   }
 // })
 
-app.use('/grams', usersRouter)
-// app.use('/grams', gramsRouter)
+// app.use('/grams', usersRouter)
+app.use('/grams', gramsRouter)
 
 const PORT = 4200
 const DOMAIN = 'localhost'
