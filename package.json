@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Repository containing SPECS and SOLUTIONS for WADD Labs",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "log-symbols": "^3.0.0"
+  },
   "devDependencies": {
     "jest": "^24.9.0"
   },
