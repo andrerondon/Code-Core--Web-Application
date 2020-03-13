@@ -1,7 +1,5 @@
 const express = require('express')
 const knex = require('../db/client')
-// const grams = require('../controllers')
-
 const router = express.Router()
 
 // router.get('/', grams)
