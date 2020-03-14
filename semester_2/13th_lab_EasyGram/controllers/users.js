@@ -1,9 +1,13 @@
 const express = require('express')
-const router = express.Router()
+const users = express.Router()
 
+// router.get('/', users)
+users.get('/', (req, res) => {
+    res.render('users/andreProfile.ejs')
+  })
 
 // router.post('/', users)
-router.post('/', (req, res) => {
+users.post('/', (req, res) => {
   const
   { firstname,
     lastname,
@@ -20,9 +24,6 @@ router.post('/', (req, res) => {
   }
 })
 
-// router.get('/', users)
-router.get('/', (req, res) => {
-  res.render('users/new.ejs')
-})
+
 
 module.exports = router
