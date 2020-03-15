@@ -2,12 +2,12 @@ const express = require('express')
 const users = express.Router()
 
 // router.get('/', users)
-users.get('/', (req, res) => {
-    res.render('users/andreProfile.ejs')
+users.get('/new', (req, res) => {
+    res.render('users/new.ejs')
   })
 
 // router.post('/', users)
-users.post('/', (req, res) => {
+users.post('/new', (req, res) => {
   const
   { firstname,
     lastname,

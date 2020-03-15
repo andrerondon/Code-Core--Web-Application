@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 const users = require('../controllers')
 
-router.post('/', users)
+router.post('/new', users)
 // router.post('/', (req, res) => {
 //   const 
 //   { firstname,
@@ -21,7 +21,7 @@ router.post('/', users)
 //   }
 // })
 
-router.get('/', users)
+router.get('/new', users)
 // router.get('/', (req, res) => {
 //   res.render('users/new.ejs')
 // })

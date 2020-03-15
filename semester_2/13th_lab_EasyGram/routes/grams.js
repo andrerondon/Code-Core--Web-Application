@@ -37,7 +37,7 @@ router.post('/', grams)
 //     //   res.send(newGram)
 //     // })
 // })
-router.post('/new', grams)
+router.post('/', grams)
 // router.get('/new', (req, res) => {
 //   res.render('grams/new')
 // })

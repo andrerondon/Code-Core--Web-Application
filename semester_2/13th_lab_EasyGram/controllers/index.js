@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
     // })
 })
 // router.post('/new', grams)
-router.get('/new', (req, res) => {
+router.get('/', (req, res) => {
   res.render('grams/new')
 })
 
