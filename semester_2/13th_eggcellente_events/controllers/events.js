@@ -11,8 +11,11 @@ module.exports = {
       })
   },
   show: (req, res) => {
-    // params.id is the value coming from the URL
-    res.send(req.params.id)
+    const { id } = req.params // req.params.id is the value coming from the URL
+    event.one(id)
+      .then(events => {
+        res.send(events)
+      })
   },
   create: (req, res) => {
     const { title, description } = req.body
