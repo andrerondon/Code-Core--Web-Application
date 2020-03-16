@@ -5,12 +5,19 @@ const gramsRouter = require('./routes/grams')
 const welcomeRouter = require('./routes/welcomeRouter')
 
 const app = express()
+app.use(logger('dev'))
+
+app.set('view engine', 'ejs')
+app.set('views', 'views');
+
+
+
 
 app.set('view engine', 'ejs') // sets the "view engine" configuration to use 'ejs'. IE Telling ExpressJS to use EJS as our views
 app.set('views', 'views') // tell express our view files are in a directory called views
 
-app.use(logger('dev'))
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({extended: true}))
+app.use(express.static('public'))
 
 //  ////// Routers /////////////
 
