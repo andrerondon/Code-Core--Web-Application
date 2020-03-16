@@ -31,5 +31,16 @@ module.exports = {
   },
   new: (req, res) => {
     res.render('events/new')
+  },
+  delete: (req, res) => {
+    const { id } = req.params // req.params.id is the value coming from the URL
+    event.delete(id)
+      .then(numberOfDeletedRecords => {
+        // res.send(`${numberOfDeletedRecords}`)
+        res.redirect('/events')
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 }

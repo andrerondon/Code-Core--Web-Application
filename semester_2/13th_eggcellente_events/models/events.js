@@ -18,5 +18,8 @@ module.exports = {
       .then(newEvent => {
         return newEvent
       })
+  },
+  delete: (id) => {
+    return knex.delete().from('events').where({ id })
   }
 }
