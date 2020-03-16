@@ -10,25 +10,8 @@ const router = express.Router()
 // 3: (C)ontroller -> Responding to requests
 router.get('/', grams.index)
 
-router.post('/', (req, res) => {
-  const {
-    srcUrl,
-    description
-  } = req.body
-  if (!srcUrl) { // if there is no srcUrl
-    res.render('grams/new', { errors: ['Missing Image Url'] })
-  }
-  knex.insert({
-    srcUrl,
-    description
-  }).into('grams').returning('*')
-    .then(newGram => {
-      res.send(newGram)
-    })
-})
+router.post('/', grams.create)
 
-router.get('/new', (req, res) => {
-  res.render('grams/new')
-})
+router.get('/new', grams.new)
 
 module.exports = router

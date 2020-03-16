@@ -1,4 +1,3 @@
-
 <%- include('../partials/header') %>
 <h1>New Gram Page</h1>
 <% if (locals.errors) { %> 
@@ -6,7 +5,7 @@
     <h4 style="color: red;"><%= error %></h2>
   <% } %>
 <% } %>
-<form action="/users" method="POST">
+<form action="/grams" method="POST">
   <div>
     <label for="srcUrl">Image Url</label>
     <input type="text" name="srcUrl">
@@ -15,8 +14,10 @@
     <label for="description">Description</label>
     <textarea type="text" name="description"></textarea>
   </div>
-  <label for="price">Price</label>
-  <input type="number" name="price">
+  <div>
+    <label for="price">Price</label>
+    <input type="number" name="price">
+  </div>
   <input type="submit" value="create gram">
 </form>
 <%- include('../partials/footer') %>
