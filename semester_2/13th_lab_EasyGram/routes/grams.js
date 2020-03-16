@@ -14,4 +14,10 @@ router.post('/', grams.create)
 
 router.get('/new', grams.new)
 
+// [Lab 1] Gram Show page
+// Create a Show Page for Gram when user goes to "/grams/:id"
+
+// - It should display the image, description and price of the gram
+// router.get('/:id', events.show)
+
 module.exports = router
