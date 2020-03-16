@@ -11,10 +11,15 @@ module.exports = {
       })
   },
   show: (req, res) => {
-    const { id } = req.params // req.params.id is the value coming from the URL
+    let { id } = req.params // req.params.id is the value coming from the URL
+    id = parseInt(id)
     event.one(id)
-      .then(events => {
-        res.send(events)
+      .then(events => { // knex always returns an array of records
+        if (events.length > 0) {
+          res.render('events/show', { event: events[0] })
+        } else {
+          res.send(`No event with id ${id}`)
+        }
       })
   },
   create: (req, res) => {
