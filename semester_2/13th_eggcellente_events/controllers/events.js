@@ -10,6 +10,10 @@ module.exports = {
         res.render('events/index', { events }) // when we get all the events respond with a view
       })
   },
+  show: (req, res) => {
+    // params.id is the value coming from the URL
+    res.send(req.params.id)
+  },
   create: (req, res) => {
     const { title, description } = req.body
     event.create({ title, description })

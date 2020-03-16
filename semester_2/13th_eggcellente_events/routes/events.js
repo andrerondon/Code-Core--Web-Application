@@ -5,6 +5,10 @@ const router = express.Router()
 
 router.get('/', events.index)
 
+// "/events/:id"
+// "/events/2"
+router.get('/:id', events.show)
+
 router.post('/', events.create)
 
 // refactor this router to use the controller
