@@ -14,6 +14,13 @@
       -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML & CSS Day 1</title>
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <style>
+      .internal-style-list {
+        font-weight: bold; 
+        list-style: none;
+      }
+    </style>
   </head>
   <body>
     <h1>Good morning, Cohort 36</h1>
@@ -57,9 +64,48 @@
 
     <p>There are three ways of inserting a stylesheet:</p>
     <ul>
-      <li>External style sheet</li>
-      <li>Internal style sheet</li>
-      <li style="font-wight: bold; list-style-type">Inline style sheet</li>
+      <li class="external-style-list">External style sheet</li>
+      <li class="internal-style-list">Internal style sheet</li>
+      <li style="font-weight: bold; list-style-type: square;">Inline style sheet</li>
     </ul>
+    <!-- There are six levels for headings. -->
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+
+    <figure class="first-image">
+      <img src="assets/images/lightbulb.svg" alt="github logo" width="300" height="300" />
+      <!-- Without size specified in HTML, SVG will take the size of the parent element -->
+    </figure>
+    <figure>
+      <img 
+        src="assets/images/airplane-turbo-fan.jpg"
+        alt="Airplane Turbo Fan"
+        width="100%"
+        height="auto"
+      />
+    </figure>
+    <ul>
+      <li>Apples
+        <ul class="fruit-varieties">
+          <li>Braeburn</li>
+          <li>Granny Smith</li>
+          <li>Macintosh</li>
+          <li>Spartan</li>
+        </ul>
+      </li>
+      <li>Bananas</li>
+      <li>Cherries</li>
+      <li>Dates</li>
+    </ul>
+    <hr />
+    <a>Hello, I am a link</a>
+    <a>Hello, I am a link</a>
+    <a>Hello, I am a link</a>
+    <a>Hello, I am a link</a>
+
   </body>
 </html>
