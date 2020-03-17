@@ -18,6 +18,11 @@ router.get('/new', grams.new)
 // Create a Show Page for Gram when user goes to "/grams/:id"
 
 // - It should display the image, description and price of the gram
-// router.get('/:id', events.show)
+router.get('/:id', grams.show)
+
+// [Lab 2] Gram Delete Action
+// Add a button the gram show page that will delete the Gram
+
+router.delete('/:id', grams.delete)
 
 module.exports = router

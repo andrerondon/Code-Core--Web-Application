@@ -16,5 +16,11 @@ module.exports = {
     .then(newGram => {
       return newGram
     })
+  },
+  one: (id) => {
+    return knex.select().from('grams').where({ id: id })
+  },
+  delete: (id) => {
+    return knex.delete().from('grams').where({ id: id })
   }
 }

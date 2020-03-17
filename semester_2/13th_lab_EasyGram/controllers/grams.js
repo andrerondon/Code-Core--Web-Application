@@ -26,5 +26,28 @@ module.exports = {
   },
   new: (req, res) => {
     res.render('grams/new')
+  },
+  show: (req, res) => {
+    let { id } = req.params
+    id = parseInt(id)
+    gram.one(id)
+      .then(grams => {
+        if (grams.length > 0) {
+          res.render('grams/show', { gram: grams[0] })
+        } else {
+          res.send(`No gram with ID:${id}`)
+        }
+      })
+  },
+  delete: (req, res) => {
+    let { id } = req.params
+    gram.delete(id)
+      .then(() => {
+        res.redirect('/grams')
+      })
+      .catch(e => {
+        console.log(e)
+      })
   }
+
 }
