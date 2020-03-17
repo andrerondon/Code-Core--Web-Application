@@ -1,5 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans|Hepta+Slab&display=swap");
+@import url(reset.css);
+
 .external-style-list {
-    list-style-type: none;
-    color: teal;
-  }
-  
+  list-style-type: none;
+  color: teal;
+}
+
+body {
+  padding: 3em;
+  /* 
+  padding-top: 3em;
+  padding-right: 3em;
+  padding-bottom: 3em;
+  padding-left: 3em;
+  */
+  padding: 0 3em 0 2em;
+  /* padding: top | right | bottom | left */
+  padding: 3em 1em;
+  /* padding: top-bottom | right-left */
+  /* margin short-hand works the same as padding */
+  margin: 1em;
+  line-height: 1.2em;
+}
+
+.bottom-paragraphs {
+  margin: 1em 0;
+}
