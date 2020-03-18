@@ -1,7 +1,7 @@
 const addOne = function(num){
     return num + 1
 }
-console.log(addOne(8));
+// console.log(addOne(8));
 
 
 function call(num, func) {
