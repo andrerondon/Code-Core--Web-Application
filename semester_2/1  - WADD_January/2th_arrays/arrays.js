@@ -45,3 +45,22 @@ arr // [2, 3, 4, 5, 6]
 // returns the new array length
 arr.unshift(0, 1) // returns 7
 arr // [0, 1, 2, 3, 4, 5, 6]
+
+// .slice() returns a new array as a portion of the array it is called on
+// arr.slice(index1, index2)
+// index1: the beginning index of the new array (inclusive)
+// index2: the end of the new array (exclusive)
+arr.slice(0, 3) // [0, 1, 2]
+
+// slice() does not mutate the array that it's called on
+arr // [0, 1, 2, 3, 4, 5, 6]
+
+// .splice() mutates the array
+// arr.splice(index1, deleteCount)
+// index1: The index to start
+// deleteCount: The number of elements to delete/change
+// returns a new array of the deleted elements
+arr.splice(1, 3) // returns [1, 2, 3]
+arr // [0, 4, 5, 6]
+
+// join() (array method) joins together all elements in an array as a string
