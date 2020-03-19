@@ -28,16 +28,16 @@
 // }
 // console.log(fahrenheitConverter(c));
 
-function cityObjects(imput){
-  if (typeof input === 'object'){
-      for (let i = 0; i < imput.length; i ++){
-          imput [i] * 9 / 5 + 32
-      }
-  }else{
-      return input * 9 / 5 + 32
+function tempConverter (input) {
+  if (typeof input === 'object') {
+    for (let key in input) {
+      input[key] = input[key] * 9/5 + 32
+    }
+    return input
   }
+  return input * 9/5 + 32
 }
-console.log(cityObjects);
+
 
 // function cityObjects(city, temperature){
 //     this.city = city
