@@ -1,3 +1,7 @@
+
+const n = new NameMe('John', 'Doe');
+
+
 class Car {
     constructor(make, model, speed, color) {
       this.make = make;
