@@ -345,4 +345,61 @@ class DoggoFighter extends Doggo {
 
 const pixy = new DoggoFighter("Pixy", 6, "fly");
 
-pixy.bark(); // this will look inside the DoggoFighter prototype
+pixy.bark();
+// this will look inside the DoggoFighter prototype if it finds bark method then it runs it
+// if doesn't find it then it will look into the parent class (Doggo) prototype if it finds bark method there,
+// it runs it otherwise, it will go one more level to look inside the global Object prototype if it finds bark method there,
+// it runs it otherwise it will complain and says (Uncaught TypeError: pixy.bark is not a function)
+
+// Move Shape, Circle, and Rectangle constructors into class syntax
+class Shape {
+  constructor(name) {
+    this.name = name;
+  }
+
+  draw() {
+    console.log(`draw a ${this.name}`);
+  }
+}
+
+class Circle extends Shape {
+  constructor(name, diameter, radius) {
+    super();
+    this.name = name;
+    this.diameter = diameter;
+    this.radius = radius;
+  }
+
+  area() {
+    console.log(`${Math.PI * this.radius ** 2}`);
+  }
+
+  draw() {
+    console.log(`draw a ${this.name}`);
+  }
+}
+
+function Rectangle(name, width, height) {
+  this.name = name;
+  this.height = height;
+  this.width = width;
+}
+
+Rectangle.prototype.area = function() {
+  console.log(`${this.width * this.height}`);
+};
+
+
+class Rectangle extends Shape {
+    constructor(name, width, height) {
+        super();
+        this.name = name;
+        this.height = height;
+        this.width = width;
+    }
+
+    area() {
+        console.log(`${this.width * this.height}`);
+    }
+
+}
