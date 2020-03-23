@@ -1,4 +1,3 @@
-const knex = require('../db/client')
 const { event } = require('../models') // deconstructing event property from models object
 // const models = require('../models') these two lines are replaced by the one above
 // const event = models.event
@@ -14,12 +13,8 @@ module.exports = {
     let { id } = req.params // req.params.id is the value coming from the URL
     id = parseInt(id)
     event.one(id)
-      .then(events => { // knex always returns an array of records
-        if (events.length > 0) {
-          res.render('events/show', { event: events[0] })
-        } else {
-          res.send(`No event with id ${id}`)
-        }
+      .then(event => { // knex always returns an array of records
+        res.render('events/show', { event })
       })
   },
   create: (req, res) => {
@@ -35,12 +30,34 @@ module.exports = {
   delete: (req, res) => {
     const { id } = req.params // req.params.id is the value coming from the URL
     event.delete(id)
-      .then(numberOfDeletedRecords => {
-        // res.send(`${numberOfDeletedRecords}`)
-        res.redirect('/events')
+      .then(hasDeleted => {
+        if (hasDeleted) {
+          res.redirect('/events')
+        } else {
+          res.redirect(`/events/${id}`)
+        }
       })
       .catch(err => {
         console.log(err)
+      })
+  },
+  edit: (req, res) => {
+    const { id } = req.params
+    event.one(id)
+      .then(event => {
+        res.render('events/edit', { event })
+      })
+  },
+  update: (req, res) => {
+    const { id } = req.params
+    const { title, description } = req.body
+    event.update({ id, title, description })
+      .then(event => {
+        if (event) {
+          res.redirect(`/events/${event.id}`)
+        } else {
+          res.redirect(`/events/${id}/edit`)
+        }
       })
   }
 }
