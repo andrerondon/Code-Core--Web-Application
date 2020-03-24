@@ -83,5 +83,107 @@ $('.shape').on('click', function(event) {
 })
 
 document.querySelectorAll('.shape').forEach(node => {
-  node.addEventListener('click')
+  node.addEventListener('click', function(event) {
+    console.log('shape clicked')
+  })
+})
+
+// Log 'blue circle go away' when a mouse enters a blue circle
+$('.circle.blue').on('mouseenter', function(event) {
+  console.log('blue circle go away!')
+})
+
+document.querySelectorAll('.circle.blue').forEach(node => {
+  node.addEventListener('mouseenter', function(event) {
+    console.log('blue circle go away!')
+  })
+})
+
+// Log 'blue circle, goodbye!' when mouse leaves a bule circle
+$('.circle.blue').on('mouseleave', function(e) {
+  console.log('blue circle goodbye!')
+})
+
+document.querySelectorAll('.shape.blue').forEach(function(node) {
+  node.addEventListener('mouseleave', function(e) {
+    console.log('blue circle goodbye!');
+  })
+})
+
+// When mouseenters any <tr>, set the class to 'highlight'
+// this and e.currentTarget is the DOM node that the event handler 
+// was attached to
+$('tr').on('mouseenter', function(e) {
+  $(this).attr('class', 'highlight')
+  // $(e.currentTarget).attr('class', 'highlight')
+})
+
+const tr = document.getElementsByTagName('tr')
+for (let i = 0; i < tr.length; i++) {
+  tr[i].addEventListener('mouseenter', function(e) {
+    tr[i].classList.add('highlight')
+  })
+}
+
+// When mouseleaves any <tr>, remove the class of 'highlight'
+$('tr').on('mouseleave', function(e) {
+  $(this).attr('class', '')
+  // $(e.currentTarget).attr('class', 'highlight')
+})
+
+const tr = document.getElementsByTagName('tr')
+for (let i = 0; i < tr.length; i++) {
+  tr[i].addEventListener('mouseleave', function(e) {
+    tr[i].classList.remove('highlight')
+  })
+}
+
+// When any shape is clicked, log the value of its class
+$('.shape').on('click', function(e) {
+  console.log($(this).attr('class'))
+})
+
+// Hide the shape when it's clicked
+$('.shape').on('click', function(e) {
+  $(this).hide()
+})
+
+// Hide the container of the shape that was clicked
+$('.shape').on('click', function(e) {
+  $(this).parent().remove()
+})
+
+// When a container is clicked, remove all shapes inside of it
+$('.container').on('click', function(e) {
+  $(this).children().remove()
+})
+
+// Event Bubbling
+// event.currentTarget or 'this' refers to the element that the 
+// event handler was attached to
+// event.target is the original element that fired the event
+
+$('.container').on('click', function(e) {
+  console.log('currentTarget:', e.currentTarget)
+  console.log('target:', e.target)
+})
+
+$('.large.blue.square').on('click',function(e) {
+  console.log('currentTarget:', e.currentTarget)
+  console.log('target:', e.target)
+})
+
+// Enable event capturing:
+document.querySelectorAll('.container').forEach(node => {
+  node.addEventListener('click', function(e) {
+    console.log('currentTarget:', e.currentTarget)
+    console.log('target:', e.target)
+  }, true)
+})
+
+document.querySelectorAll('.square.blue.large').forEach(node => {
+  node.addEventListener('click', function(e) {
+    console.log('currentTarget:', e.currentTarget)
+    console.log('target:', e.target)
+  }, true)
 })
