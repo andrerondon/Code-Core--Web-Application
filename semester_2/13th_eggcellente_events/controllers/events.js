@@ -18,14 +18,19 @@ module.exports = {
   show: (req, res) => {
     let { id } = req.params // req.params.id is the value coming from the URL
     id = parseInt(id)
-    event.one(id)
+    new event({ id }).fetch() //https://bookshelfjs.org/api.html#Model-instance-fetch
       .then(event => { // knex always returns an array of records
+        event = event.toJSON()
         res.render('events/show', { event })
+      })
+      .catch(err => { // will throw this https://bookshelfjs.org/api.html#Model-static-NotFoundError error if we don't recieve a event back from fetch()
+        console.log(err)
       })
   },
   create: (req, res) => {
     const { title, description } = req.body
-    event.create({ title, description })
+    const newEvent = event.forge({ title, description }) // event.forge creates a new in memory instance of Event
+    newEvent.save() // calling .save() will add the instance to the database
       .then(event => {
         res.redirect(`/events/${event.id}`)
       })
