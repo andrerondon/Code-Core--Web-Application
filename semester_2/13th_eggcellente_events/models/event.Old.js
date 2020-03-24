@@ -20,8 +20,10 @@ module.exports = {
     return knex.insert({ title, description })
       .into('events')
       .returning('*')
-      .then(newEvent => {
-        return newEvent
+      .then(newEvents => {
+        if (newEvents.length > 0) {
+          return newEvents[0]
+        }
       })
   },
   delete: (id) => {
@@ -34,5 +36,10 @@ module.exports = {
   },
   update: ({ id, title, description }) => {
     return knex('events').update({ title, description }).where({ id }).returning('*')
+      .then(updatedEvents => {
+        if (updatedEvents.length > 0) {
+          return updatedEvents[0]
+        }
+      })
   }
 }

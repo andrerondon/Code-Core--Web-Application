@@ -4,9 +4,15 @@ const { event } = require('../models') // deconstructing event property from mod
 
 module.exports = {
   index: (req, res) => {
-    event.all() // ask the model for all of our vents
+    event.fetchAll()
       .then(events => {
+        // Bookshelf ORM returns a Bookshelf Model instance that has a bunch of extra methods.
+        // we have to call events.toJSON() to grab the records from the Bookshelf Model Instance
+        events = events.toJSON()
         res.render('events/index', { events }) // when we get all the events respond with a view
+      })
+      .catch(err => {
+        console.log(err)
       })
   },
   show: (req, res) => {
@@ -21,7 +27,7 @@ module.exports = {
     const { title, description } = req.body
     event.create({ title, description })
       .then(event => {
-        res.send(event)
+        res.redirect(`/events/${event.id}`)
       })
   },
   new: (req, res) => {
