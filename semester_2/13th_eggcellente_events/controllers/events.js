@@ -18,7 +18,7 @@ module.exports = {
   show: (req, res) => {
     let { id } = req.params // req.params.id is the value coming from the URL
     id = parseInt(id)
-    new Event({ id }).fetch() //https://bookshelfjs.org/api.html#Model-instance-fetch
+    new Event({ id }).fetch() // https://bookshelfjs.org/api.html#Model-instance-fetch
       .then(event => { // knex always returns an array of records
         event = event.toJSON()
         res.render('events/show', { event })
@@ -44,7 +44,7 @@ module.exports = {
       .then(hasDeleted => {
         res.redirect('/events')
       })
-      .catch(err => { //throws https://bookshelfjs.org/api.html#Model-static-NoRowsDeletedError error if no records are deleted
+      .catch(err => { // throws https://bookshelfjs.org/api.html#Model-static-NoRowsDeletedError error if no records are deleted
         console.log(err)
       })
   },

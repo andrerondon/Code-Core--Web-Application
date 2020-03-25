@@ -1,5 +1,6 @@
 const events = require('./events')
-// const users = require('./users')
+const UsersController = require('./users')
 module.exports = {
-  events
+  events,
+  UsersController
 }
