@@ -47,3 +47,31 @@ GET "/users/:id/edit" -> controller.edit -> view.edit
 PATCH "/users/:id" -> controller.update -> update a user
 DELETE "/users/:id" -> controller.delete -> delete user
 
+March 25:
+
+Agenda:
+1) Go Over Users CRUD
+  a) Create Users Seed
+  b) Create a Login Page -> create a route -> add controller -> view
+2) User Authorization with Cookies
+  a) Explain Cookies
+  a) "cookie-session" middleware
+  b) when user submits login create a cookie
+3) Hashing passwords
+  a) explain hashing
+  b) explain salt
+  c) install "bcrypt" middleware
+  d) **Create Password Helper**
+  e) update seedfile
+  f) login with secure password
+  g) create authentication middleware
+4) One to Many Association <- if we have time
+
+HTTP requests are stateless. If we wanted to save data between requests we'd need implement Session
+
+We implement Sessions with cookies
+
+Hashing is taking a string and turning it into another string that looks randomized.
+Nobody should be able to un-Hash the "hashed" string
+
+We use the bcrypt module to hash passwords for us https://www.npmjs.com/package/bcrypt
