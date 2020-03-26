@@ -154,3 +154,84 @@ const guest1 = {
   
   const protypicalCounter1 = new PrototypicalCounter(10)
   
+
+
+// Inheriance
+
+
+function Mammal(name) {
+  this.name = name
+}
+Mammal.prototype.print = function() {
+  console.log(`I am a mammal: ${this.name}`)
+}
+function Doggo(name) {
+  this.name = name
+}
+Doggo.prototype.print = function() {
+  console.log(`I am a doggo: ${this.name}`)
+}
+function Husky(name) {
+  this.name = name
+}
+Husky.prototype.print = function() {
+  console.log(`I am a husky: ${this.name}`)
+}
+
+Object.setPrototypeOf(Doggo.prototype, Mammal.prototype)
+Object.setPrototypeOf(Husky.prototype, Doggo.prototype)
+
+
+////////////// 
+
+
+function Vehicle(make, model, speed, fuelAmount, color) {
+  this.make = make
+  this.model = model
+  this.speed = speed
+  this.fuelAmount = fuelAmount
+  this.color = color
+}
+
+Vehicle.prototype.print = function() {
+  return `I am a Vehicle nd my standard speed is ${this.speed} and I am ${this.color}`
+}
+
+const vehicle1 = new Vehicle("Honda", "Civic", 220, "50L", "blue")
+
+function Car(make, model, speed, fuelAmount, color) {
+  this.make = make
+  this.model = model
+  this.speed = speed
+  this.fuelAmount = fuelAmount
+  this.color = color
+}
+
+Object.setPrototypeOf(Car.prototype, Vehicle.prototype)
+
+const car1 = new Car("Acura", "TSX", 280, "45L", "red")
+
+Car.prototype.print = function() {
+  return `I am a ${this.make} ${this.model}`
+}
+
+//////////////
+
+function Bus(make, model, speed, fuelAmount, color) {
+  this.make = make
+  this.model = model
+  this.speed = speed
+  this.fuelAmount = fuelAmount
+  this.color = color
+}
+
+Object.setPrototypeOf(Bus.prototype, Vehicle.prototype)
+
+const bus1 = new Bus("Tesla_bus", "Tesla", 500, "I'm Eletric", "Silver")
+
+Bus.prototype.print = function() {
+  return `I am a ${this.make} ${this.model}`
+}
+
+
+console.log(bus1);
