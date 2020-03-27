@@ -11,12 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bookshelf": "^1.1.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "knex": "^0.20.11",
     "method-override": "^3.0.0",
-    "pg": "^7.18.2",
-    "standard": "^14.3.1"
+    "pg": "^7.18.2"
   },
   "devDependencies": {
     "faker": "^4.1.0",
