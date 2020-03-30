@@ -27,6 +27,7 @@ app.use(cookieSession({
 }))
 
 // This methodOverride middleware is a HACK to make HTML forms support DELETE/PUT/PATCH/ect methods
+// So for is necessary for html forms.... 
 app.use(methodOverride((req, res) => {
   if (req.body && req.body._method) {
     const method = req.body._method

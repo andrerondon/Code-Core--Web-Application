@@ -75,3 +75,22 @@ Hashing is taking a string and turning it into another string that looks randomi
 Nobody should be able to un-Hash the "hashed" string
 
 We use the bcrypt module to hash passwords for us https://www.npmjs.com/package/bcrypt
+
+
+
+March 30
+
+Agenda:
+
+
+0) Questions/Review
+1) Create buttons in Navbar for Sign In / Sign out
+  - pass `req.session` to views
+2) Create Authentication Middleware
+3) Model Validations
+  - event "saving"
+4) One to Many Associations
+5) Custom flash middleware
+  works by:
+  sets `req.locals.sessionFlash = res.session.sessionFlash`
+  then delete `res.session.sessionFlash`
