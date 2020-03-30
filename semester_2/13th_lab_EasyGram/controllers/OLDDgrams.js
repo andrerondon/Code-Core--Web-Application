@@ -2,15 +2,13 @@ const { gram } = require('../models')
 
 module.exports = {
   index: (req, res) => {
-    gram.fetchAll()
-        .then(grams =>{
-            grams = grams.toJSON()
-            res.render('grams/index', { grams })
-        })
-        
-        .catch(e => {
+    gram.all()
+      .then(grams => {
+        res.render('grams/index', { grams })
+      })
+      .catch(e => {
         res.render('grams/index', { grams: [] })
-        })
+      })
   },
   create: (req, res) => {
     const {

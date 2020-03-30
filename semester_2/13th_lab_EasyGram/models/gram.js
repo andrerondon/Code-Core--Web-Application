@@ -1,26 +1,8 @@
-const knex = require('../db/client')
+const bookshelf = require('../db/orm')
 
-module.exports = {
-  all: () => {
-    return knex.select('*').from('grams')
-      .then( grams => {
-        return grams
-      })
-  },
-  create: ({ srcUrl, description, price }) => {
-    return knex.insert({
-      srcUrl,
-      description,
-      price
-    }).into('grams').returning('*')
-    .then(newGram => {
-      return newGram
-    })
-  },
-  one: (id) => {
-    return knex.select().from('grams').where({ id: id })
-  },
-  delete: (id) => {
-    return knex.delete().from('grams').where({ id: id })
-  }
-}
+
+const gram = bookshelf.model('gram', {
+  tableName: 'grams'
+})
+
+module.exports = gram

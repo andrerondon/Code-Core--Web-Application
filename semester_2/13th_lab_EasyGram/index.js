@@ -1,9 +1,9 @@
 const express = require('express')
 const logger = require('morgan')
+const methodOverride = require('method-override')
 const usersRouter = require('./routes/users')
 const gramsRouter = require('./routes/grams')
 const welcomeRouter = require('./routes/welcomeRouter')
-const methodOverride = require('method-override')
 
 const app = express()
 
