@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,8 @@
         border: 1px solid #ccc;
         box-sizing: border-box;
     } */
-</style>
+</style> -->
+<%- include('../partials/header') %> 
 <body>
     <form onSubmit = "return checkPassword(this)"  method="POST" action="/users" > 
         <div class="First_name">
@@ -63,4 +64,6 @@
     } 
 </script> 
 
-</html>
+<%- include('../partials/footer') %> 
+
+<!-- </html> -->
