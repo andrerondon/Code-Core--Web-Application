@@ -10,7 +10,8 @@ module.exports = {
     res.render('sessions/new', { session: req.session })
   },
   create: (req, res) => {
-    const { email, password } = req.body
+    let { email, password } = req.body
+    email = email.toLowerCase()
     let user
     new User({ email }).fetch()
       .then(u => { // u is a instance of bookshelfORM

@@ -115,12 +115,11 @@ Agenda:
   - throwing javascript
   - refactor password hash to use event
 5.a) Error Handler Middleware
-6) One to Many Associations
-  - add foreign key constraint to event: user_id -> user.id
-  - add model to relationship
-  -
-7) Custom flash middleware
+6) Custom flash middleware
   works by:
   sets `req.locals.sessionFlash = res.session.sessionFlash`
   then delete `res.session.sessionFlash`
-  
+8) One to Many Associations
+  - add foreign key constraint to event: user_id -> user.id
+  - add model to relationship
+  -
