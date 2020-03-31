@@ -1,6 +1,8 @@
 const { gram } = require('../models')
+const UsersGramsController  = require('express')
 
 module.exports = {
+
   index: (req, res) => {
     gram.fetchAll()
         .then(grams =>{

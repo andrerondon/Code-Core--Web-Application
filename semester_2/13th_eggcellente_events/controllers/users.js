@@ -2,7 +2,7 @@ const { User } = require('../models')
 const Password = require('../helpers/Password')
 
 module.exports = {
-  index: (req, res) => {
+  index: (req, res) => {  // is showing a list with all users
     User.fetchAll()
       .then(users => {
         users = users.toJSON()
@@ -27,7 +27,7 @@ module.exports = {
       res.send('passwords do not match')
     }
   },
-  show: (req, res) => {
+  show: (req, res) => { // is showing a list with only this id user
     const { id } = req.params
     new User({ id }).fetch()
       .then(user => {
