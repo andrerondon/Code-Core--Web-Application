@@ -1,5 +1,5 @@
 const { gram } = require('../models')
-const UsersGramsController  = require('express')
+// const UsersGramsController  = require('express')
 
 module.exports = {
 
