@@ -94,3 +94,33 @@ Agenda:
   works by:
   sets `req.locals.sessionFlash = res.session.sessionFlash`
   then delete `res.session.sessionFlash`
+
+
+
+March 31
+
+Agenda:
+
+
+0) Questions/Review
+1) Create buttons in Navbar for Sign In / Sign out
+  - pass `req.session` to views
+2) Create Users with hashed password
+3) Create Authentication Middleware
+4) res.locals
+---------------------------------------------------
+5) Model Validations (Bookshelf Events)
+  - user "saving"
+  - email, password,
+  - throwing javascript
+  - refactor password hash to use event
+5.a) Error Handler Middleware
+6) One to Many Associations
+  - add foreign key constraint to event: user_id -> user.id
+  - add model to relationship
+  -
+7) Custom flash middleware
+  works by:
+  sets `req.locals.sessionFlash = res.session.sessionFlash`
+  then delete `res.session.sessionFlash`
+  

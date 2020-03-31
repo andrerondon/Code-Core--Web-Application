@@ -2,7 +2,7 @@ const { User } = require('../models')
 const Password = require('../helpers/Password')
 
 module.exports = {
-  index: (req, res) => {  // is showing a list with all users
+  index: (req, res) => {
     User.fetchAll()
       .then(users => {
         users = users.toJSON()
@@ -13,21 +13,30 @@ module.exports = {
   new: (req, res) => {
     res.render('users/new')
   },
-  create: (req, res) => {
+  create: (req, res, next) => {
     const { firstName, lastName, email, password, passwordConfirmation } = req.body
     if (password === passwordConfirmation) {
       Password.create(password)
         .then(hash => {
-          return new User({ first_name: firstName, last_name: lastName, email, password_digest: hash }).save()
+          return new User({
+            first_name: firstName,
+            last_name: lastName,
+            email,
+            password_digest: hash
+          }).save()
         })
         .then(user => {
           res.send(user)
+        })
+        .catch(err => {
+          res.redirect('users/new')
+          next(err)
         })
     } else {
       res.send('passwords do not match')
     }
   },
-  show: (req, res) => { // is showing a list with only this id user
+  show: (req, res) => {
     const { id } = req.params
     new User({ id }).fetch()
       .then(user => {
