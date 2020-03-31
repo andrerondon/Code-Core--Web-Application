@@ -6,6 +6,7 @@ const usersRouter = require('./routes/users')
 const rootsRouter = require('./routes/roots')
 const cookieSession = require('cookie-session')
 const noMonkey = require('./middleware/noMonkey')
+const setSessionUser = require('./middleware/setSessionUser')
 
 const app = express()
 
@@ -36,6 +37,7 @@ app.use(methodOverride((req, res) => {
     return method
   }
 }))
+app.use(setSessionUser)
 app.use(noMonkey)
 // Routes
 
@@ -48,6 +50,7 @@ app.use('/', rootsRouter)
 // GET "/"
 app.get('/', (req, res) => {
   // res.send("<h1>Hello World</h1>")
+  res.locals.id = req.session.id
   res.render('hello_world.ejs')
 })
 

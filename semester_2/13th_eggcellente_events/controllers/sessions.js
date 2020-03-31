@@ -19,7 +19,7 @@ module.exports = {
       })
       .then(result => {
         if (result) {
-          req.session.id = user.id
+          req.session.user = user
           req.session.monkey = 'banana'
           res.redirect('/')
         } else {
