@@ -26,7 +26,10 @@ let user2 = {
 
 function info(obj){
     return obj.name + ' is ' + obj.age + ' years old '
+    
 }
+
+
 
 function couple(user1, user2){
     return user1.name + ' is marrige with ' + user2.name
