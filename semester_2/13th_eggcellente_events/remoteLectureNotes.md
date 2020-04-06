@@ -123,3 +123,20 @@ Agenda:
   - add foreign key constraint to event: user_id -> user.id
   - add model to relationship
   -
+
+
+
+
+  April 6
+
+1) Model Validations & Displaying Errors with Checkit
+  a) 
+2) One to Many Associations
+  a) make migration for users & events
+  b) add the associations to the model
+  c) update views to show additional info
+3) Custom flash middleware
+
+4) Blog Project
+  a) express generator
+  b) express MVC boilerplate

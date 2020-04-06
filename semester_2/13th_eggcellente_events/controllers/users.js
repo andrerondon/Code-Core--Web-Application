@@ -32,6 +32,7 @@ module.exports = {
         res.redirect(`/users/${user.id}`)
       })
       .catch(err => { // err is something we have thrown from our model or something bookshelf has thrown
+        console.log(err)
         let errors
         if (err.length) {
           errors = err.map(e => e.message)

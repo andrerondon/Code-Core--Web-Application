@@ -1,10 +1,10 @@
 const express = require('express')
 const logger = require('morgan')
 const methodOverride = require('method-override')
+const cookieSession = require('cookie-session')
 const eventsRouter = require('./routes/events')
 const usersRouter = require('./routes/users')
 const rootsRouter = require('./routes/roots')
-const cookieSession = require('cookie-session')
 const noMonkey = require('./middleware/noMonkey')
 const setSessionUser = require('./middleware/setSessionUser')
 
@@ -26,9 +26,9 @@ app.use(cookieSession({
   secret: 'supersecret', // used to sign our cookie
   maxAge: 24 * 60 * 60 * 1000 // to expire expire the cookie after 1 day
 }))
+// cookieSession middleware allows us to create a session by adding something to req.session
 
 // This methodOverride middleware is a HACK to make HTML forms support DELETE/PUT/PATCH/ect methods
-// So for is necessary for html forms.... 
 app.use(methodOverride((req, res) => {
   if (req.body && req.body._method) {
     const method = req.body._method
@@ -50,7 +50,6 @@ app.use('/', rootsRouter)
 // GET "/"
 app.get('/', (req, res) => {
   // res.send("<h1>Hello World</h1>")
-  res.locals.id = req.session.id
   res.render('hello_world.ejs')
 })
 
@@ -77,6 +76,7 @@ app.get('/memes', (req, res) => {
     ]
   })
 })
+
 
 const PORT = 3000
 const DOMAIN = 'localhost'

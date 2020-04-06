@@ -12,6 +12,7 @@
   "dependencies": {
     "bcrypt": "^4.0.1",
     "bookshelf": "^1.1.0",
+    "checkit": "^0.7.0",
     "cookie-session": "^1.4.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
