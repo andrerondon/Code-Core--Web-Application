@@ -18,9 +18,11 @@ module.exports = {
   show: (req, res) => {
     let { id } = req.params // req.params.id is the value coming from the URL
     id = parseInt(id)
-    new Event({ id }).fetch() // https://bookshelfjs.org/api.html#Model-instance-fetch
+    // because event belongsTo('User') we can add a withRelated option to fetch to grab the user it belongs to
+    new Event({ id }).fetch({ withRelated: 'owner' }) // https://bookshelfjs.org/api.html#Model-instance-fetch
       .then(event => { // knex always returns an array of records
         event = event.toJSON()
+        console.log(event)
         res.render('events/show', { event })
       })
       .catch(err => { // will throw this https://bookshelfjs.org/api.html#Model-static-NotFoundError error if we don't recieve a event back from fetch()
@@ -28,8 +30,9 @@ module.exports = {
       })
   },
   create: (req, res) => {
+    const user = res.locals.user // grab the user from session so we can use it for user_id column
     const { title, description } = req.body
-    const newEvent = Event.forge({ title, description }) // event.forge creates a new in memory instance of Event
+    const newEvent = Event.forge({ title, description, user_id: user.id }) // event.forge creates a new in memory instance of Event
     newEvent.save() // calling .save() will add the instance to the database
       .then(event => {
         res.redirect(`/events/${event.id}`)

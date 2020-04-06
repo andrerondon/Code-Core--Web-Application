@@ -33,20 +33,15 @@ module.exports = {
       })
       .catch(err => { // err is something we have thrown from our model or something bookshelf has thrown
         console.log(err)
-        let errors
-        if (err.length) {
-          errors = err.map(e => e.message)
-        } else {
-          errors = [err.message]
-        }
-        res.render('users/new', { errors })
+        res.render('users/new', { errors: err.errors })
       })
   },
   show: (req, res) => {
     const { id } = req.params
-    new User({ id }).fetch()
+    new User({ id }).fetch({ withRelated: 'events' })
       .then(user => {
         user = user.toJSON()
+        console.log(user)
         res.render('users/show', { user })
       })
   },
@@ -71,6 +66,9 @@ module.exports = {
     new User({ id }).save({ first_name: firstName, last_name: lastName, email, password_digest: password })
       .then(user => {
         res.redirect(`/users/${user.id}`)
+      })
+      .catch(err => {
+        res.send(err)
       })
   }
 }

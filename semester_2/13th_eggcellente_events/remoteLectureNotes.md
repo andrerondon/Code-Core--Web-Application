@@ -127,10 +127,13 @@ Agenda:
 
 
 
-  April 6
+ April 6
 
 1) Model Validations & Displaying Errors with Checkit
-  a) 
+  a)
+
+Users can have many Events
+Event belongs to a User
 2) One to Many Associations
   a) make migration for users & events
   b) add the associations to the model
