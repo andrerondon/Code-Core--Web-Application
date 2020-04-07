@@ -7,6 +7,7 @@ const usersRouter = require('./routes/users')
 const rootsRouter = require('./routes/roots')
 const noMonkey = require('./middleware/noMonkey')
 const setSessionUser = require('./middleware/setSessionUser')
+const sessionFlash = require('./middleware/sessionFlash')
 
 const app = express()
 
@@ -39,6 +40,7 @@ app.use(methodOverride((req, res) => {
 }))
 app.use(setSessionUser)
 app.use(noMonkey)
+app.use(sessionFlash)
 // Routes
 
 // Event Router
@@ -50,6 +52,8 @@ app.use('/', rootsRouter)
 // GET "/"
 app.get('/', (req, res) => {
   // res.send("<h1>Hello World</h1>")
+  // res.cookie is used to create a cookie
+  res.cookie('created by the index route', 'supersecretpassword')
   res.render('hello_world.ejs')
 })
 

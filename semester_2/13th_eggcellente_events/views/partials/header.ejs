@@ -13,3 +13,10 @@
 </head>
 <body>
   <%- include('./navbar.ejs') %>
+  <% if (sessionFlash.confirm) { %>
+    <p style="color: green"><%= sessionFlash.confirm %></p>
+  <% } %>
+  <% if (sessionFlash.error) { %>
+    <p style="color: red;"><%= sessionFlash.error %></p>
+  <% } %>
+  <div class="container">

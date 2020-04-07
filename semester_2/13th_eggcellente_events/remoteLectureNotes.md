@@ -143,3 +143,9 @@ Event belongs to a User
 4) Blog Project
   a) express generator
   b) express MVC boilerplate
+
+
+  April 7
+
+Many to Many
+

@@ -29,23 +29,23 @@ module.exports = {
       .save()
       .then(user => {
         user = user.toJSON()
+        req.session.sessionFlash.confirm = 'User Created!'
         res.redirect(`/users/${user.id}`)
       })
       .catch(err => { // err is something we have thrown from our model or something bookshelf has thrown
-        let errors
-        if (err.length) {
-          errors = err.map(e => e.message)
-        } else {
-          errors = [err.message]
-        }
-        res.render('users/new', { errors })
+        console.log(err)
+        // because of our custom sessionFlash middleware: we can set req.session.sessionFlash.errors to any err object we want and it will be available as a global variable on the next request
+        req.session.sessionFlash = {}
+        req.session.sessionFlash.errors = err
+        res.redirect('users/new')
       })
   },
   show: (req, res) => {
     const { id } = req.params
-    new User({ id }).fetch()
+    new User({ id }).fetch({ withRelated: 'events' })
       .then(user => {
         user = user.toJSON()
+        console.log(user)
         res.render('users/show', { user })
       })
   },
@@ -70,6 +70,9 @@ module.exports = {
     new User({ id }).save({ first_name: firstName, last_name: lastName, email, password_digest: password })
       .then(user => {
         res.redirect(`/users/${user.id}`)
+      })
+      .catch(err => {
+        res.send(err)
       })
   }
 }

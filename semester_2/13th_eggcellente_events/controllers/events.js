@@ -41,34 +41,67 @@ module.exports = {
   new: (req, res) => {
     res.render('events/new')
   },
-  delete: (req, res) => {
+  delete: (req, res, next) => {
+    const { user } = res.locals
     const { id } = req.params // req.params.id is the value coming from the URL
-    new Event({ id }).destroy() // delete the event record with id
+    let event
+    new Event({ id }).fetch() // delete the event record with id
+      .then(result => {
+        event = result
+        if (event.attributes.user_id === user.id) {
+          return event.destroy()
+        } else {
+          req.session.sessionFlash.error = 'You are not allowed to do this action'
+          res.redirect(`/events/${event.id}`)
+        }
+      })
       .then(hasDeleted => {
         res.redirect('/events')
       })
       .catch(err => { // throws https://bookshelfjs.org/api.html#Model-static-NoRowsDeletedError error if no records are deleted
         console.log(err)
+        next(err)
       })
   },
   edit: (req, res) => {
+    const user = res.locals.user
     const { id } = req.params
     new Event({ id }).fetch()
       .then(event => {
-        event = event.toJSON()
-        res.render('events/edit', { event })
+        if (event.attributes.user_id === user.id) {
+          event = event.toJSON()
+          res.render('events/edit', { event }) // send them a ejs file
+        } else {
+          req.session.sessionFlash.error = 'You dont own this event you can not go to the edit page'
+          res.redirect(`/events/${id}`) // redirect to GET localhost:3000/events/50
+        }
       })
   },
-  update: (req, res) => {
-    const { id } = req.params
-    const { title, description } = req.body
-    new Event({ id }).save({ title, description })
-      .then(event => {
+  update: (req, res, next) => {
+    const user = res.locals.user // grab the user from the session
+    const { id } = req.params // grabs the event id from the url params
+    const { title, description } = req.body // grabs the new title and description from the form
+    let event
+    new Event({ id }).fetch() // fetch the event from the database using the event.id
+      .then(result => {
+        event = result
+        if (event.attributes.user_id === user.id) { // check if the event.user_id is equal to the user.id from session
+          // if the current user is the owner of the event then we can call event.save()
+          return event.save({ title, description }) // returns a promise
+        } else {
+          // if the current user is NOT the owner of the event.
+          // DO NOT save redirect them to the event show page
+          req.session.sessionFlash.error = 'You are not allowed to do this action' // display an error message
+          res.redirect(`/events/${event.id}`)
+        }
+      })
+      .then(event => { // after saving event redirect to the event show page
         event = event.toJSON()
         res.redirect(`/events/${event.id}`)
       })
-      .catch(err => { // throws https://bookshelfjs.org/api.html#Model-static-NoRowsUpdatedError if no records were updated
+      .catch(err => {
         console.log(err)
+        next(err)
       })
   }
 }
