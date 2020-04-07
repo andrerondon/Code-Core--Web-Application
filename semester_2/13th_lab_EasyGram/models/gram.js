@@ -6,3 +6,5 @@ const gram = bookshelf.model('gram', {
 })
 
 module.exports = gram
+
+
