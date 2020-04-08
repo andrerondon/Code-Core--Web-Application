@@ -64,7 +64,7 @@ puts "Hello #{name}"
 
 # Ask a use for their name then print their name capitalized
 puts "What is your name?"
-name = gets.chomp   # gets.chomp to ask for user type 
+name = gets.chomp
 puts name.capitalize
 
 # can also do:
@@ -174,6 +174,15 @@ while count <= 50
     count += 1
 end
 
+# print the numbers 50 to 1 using while loop
+count = 50
+while count >= 1
+    print "#{count} "
+    count -= 1
+end
+
+# looping with times
+10.times { puts "codecore" } # this will print codecore 10 times
 
 print "How many times should I repeat? "
 number = gets.to_i 
@@ -202,3 +211,13 @@ num = gets.to_i
 for number in 1..num
     puts number 
 end
+
+# Replacing a pattern in a string
+'hello'.gsub('ll', 'rr')
+
+# to check the class of a variable or datatype
+1.is_a? Integer # true
+1.is_a? Float # false
+1.is_a? String # false
+2.5.is_a? Float # true
+'hello'.is_a? String # true
