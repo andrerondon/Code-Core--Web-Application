@@ -14,3 +14,15 @@ end
 
 p str.join
 
+####### other solution
+
+greeting = 'hello'
+greeting.length # gives us length of string
+last_index = greeting.length - 1
+reverse = []
+last_index.downto(0) do |num|
+  reverse << greeting[num]
+end
+p reverse.join
+
+
