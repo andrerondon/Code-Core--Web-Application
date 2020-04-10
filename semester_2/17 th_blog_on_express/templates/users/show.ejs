@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+  <h1>Users Show Page</h1>
+  <% // in the res.render() call we pass a second object argument that contains a user property %>
+  <% // that user property becomes a variable in this view that we can use to dynamically show data %>
+  <% if (user) { %>
+    <h2><%= user.full_name %></h2>
+    <p><%= user.email %></p>
+  <% } %>
+<%- include('../partials/footer') %>

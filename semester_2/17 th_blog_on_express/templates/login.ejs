@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Login Page</h1>
+  <% // the method attribute for a form tag will set the HTTP VERB used to make the form submission %>
+  <% // the action attribute will specifiy the path the form submission will make a request to %>
+  <form action="/login" method="POST">
+    <label for="email">Email</label>
+    <% // input tags should all have a name attribute. This will be the key of the data when we recieve it on the server side %>
+    <input type="text" name="email">
+    <input type="submit" value="Login">
+  </form>
+</body>
+</html>

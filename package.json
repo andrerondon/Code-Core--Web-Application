@@ -4,6 +4,7 @@
   "description": "Repository containing SPECS and SOLUTIONS for WADD Labs",
   "main": "index.js",
   "dependencies": {
+    "express": "^4.17.1",
     "log-symbols": "^3.0.0"
   },
   "devDependencies": {

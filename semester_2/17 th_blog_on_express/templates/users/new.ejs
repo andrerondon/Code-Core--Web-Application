@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+  <h1>The New Users Form</h1>
+  <form action="/users" method="POST">
+    <div>
+      <label for="fullName">Full Name</label>
+      <input type="text" name="fullName">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" name="email">
+    </div>
+    <input type="submit" value="create user">
+  </form>
+<%- include('../partials/footer') %>

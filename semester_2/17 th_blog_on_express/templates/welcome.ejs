@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Welcome to Blog On Express</h1>
+  <form action="/session" method="POST">
+    <% // the method-override middleware is checking all req.body for a input called _method %>
+    <% // if _method input is found it will overwrite the current VERB with the value of that input %>
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="log out">
+  </form>
+</body>
+</html>
