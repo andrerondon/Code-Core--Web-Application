@@ -9,7 +9,7 @@ router.get('/login', (req, res) => {
 router.post('/login', (req, res) => {
   const oneDay = 1000 * 60 * 60 * 24 // quick maths to calculate amount of milliseconds in one day
   res.cookie('user', 'jon snow', { maxAge: oneDay })
-  res.send(`you've posted to /login`)
+  res.send(`Thanks for login`)
 })
 
 // When a user DELETE "/session"

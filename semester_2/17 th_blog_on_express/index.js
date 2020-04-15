@@ -36,6 +36,7 @@ app.get('/', (req, res) => {
   // res.render() is used to render a template. It accepts two arguments
   // 1) is the path of the view (ejs file) from the "views" directory
   res.render('welcome')
+  
 })
 
 // we can create a route here to login a user but to organize our code better lets move all the routes related to login into a file `/routes/sessions.js`
