@@ -103,4 +103,82 @@ product2(1, 3, 4, 5, 6) # => 360
 # of elements of arguments to a method call
 product2(*[1, 3, 4, 5, 6]) # => 360
 array = [1, 3, 4, 5, 6]
-puts product2(*array) # => 360
+product2(*array) # => 360
+
+def find_min(*nums)
+    nums.reduce do |acc, currentValue|
+        if acc > currentValue
+            currentValue
+        else 
+            acc
+        end
+    end
+end
+
+find_min(20, 23, 13, 16, 3, 25)
+
+# Blocks
+
+# All methods can take a block as an argument and
+# only one block at a time
+def my_method2
+    puts "We are in the method"
+    yield
+end
+
+# my_method2 { puts "The block is called" }
+
+def my_method3(x)
+    puts "Before Block"
+    # To execute a block that's been passed to a
+    # method, use the "yield" keyword. This is 
+    # like calling the block. 
+    # yield will return the last expression from the 
+    # block
+    yield_return = yield 
+    puts "Yielded block returned: #{yield_return}"
+    puts "After Block"
+end
+
+# my_method3(5) { "The block" }
+
+# Yield can be used multiple times
+def print_twice 
+    yield 
+    yield 
+end 
+
+# print_twice { puts "Hello" }
+# "Hello"
+# "Hello"
+
+# If you try to yield without a block you will
+# get a no block given error
+
+# print_twice # LocalJumpError:  no block given (yield)
+
+# You can check if a block has been passed with 
+# the block_given? method
+
+def do_something_with_block 
+    return "no block given" unless block_given?
+    yield 
+end
+
+do_something_with_block
+# "no block given"
+do_something_with_block { "Hello World" }
+# "Hello World" 
+
+# Exercise: Implementing each 
+def each (arr)
+    # arr = [2, 3, 4, 5]
+    # val will be 2 in the first iteration and so on...
+    for val in arr 
+        # we are calling block ({ |x| x * 10 }) with val
+        result = yield(val)
+        puts "result: #{result}"
+    end
+end
+
+each([2, 3, 4, 5]) { |x| x * 10 }
