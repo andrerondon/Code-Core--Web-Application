@@ -1,4 +1,4 @@
-require('pry') # a gem that allows us to use a ruby REPL
+# require('pry') # a gem that allows us to use a ruby REPL
 
 # We can define a class using the `class` keyword
 
@@ -109,7 +109,7 @@ Cookie.info # returns "Cookies are an essential part of a balanced diet"
 
 
 
-binding.pry # tells pry to run
+# binding.pry # tells pry to run
 # type in quit to exit from REPL. OR ctrl-c
 # if pry is not installed, use the command `gem install pry` to install it. If you need superuser 
 # permission `sudo gem install pry`
