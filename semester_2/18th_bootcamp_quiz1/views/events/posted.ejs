@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+<% for (let ele of arg){ %>
+    <h1><%=ele.content%> </h1>
+    <img src="<%=ele.srcUrl%> " alt="">
+<% } %>  
+
+<%- include('../partials/footer') %>

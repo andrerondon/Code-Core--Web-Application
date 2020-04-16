@@ -75,7 +75,7 @@ end
 
 def product(first, *nums)
     result = first 
-    puts "first: #{first}"
+     "first: #{first}"
     puts "nums: #{nums}"
     nums.each { |num| result *= num }
     result 
@@ -181,4 +181,139 @@ def each (arr)
     end
 end
 
-each([2, 3, 4, 5]) { |x| x * 10 }
+# each([2, 3, 4, 5]) { |x| x * 10 }
+
+# Exercise: Implementing map
+def map(arr)
+    output = []
+    for val in arr 
+        output << yield(val)
+    end
+    puts "output: #{output}"
+    output
+end
+
+# map([1, 2, 3, 4]) { |x| x * 10 } 
+# [10, 20, 30, 40]
+
+# Creating Lambdas
+
+# Lamdas is Ruby's name for an anonymous function 
+# Write it like so:
+
+add_five = lambda { |n| n + 5}
+power_2 = -> (n) { n ** 2 }
+
+# Calling lambda
+add_five.call(10)
+power_2.call(5)
+
+# If you pass the wrong number of arguments to a
+# lambda, it will raise an exception, just like 
+# a regular method
+
+
+# Using it as a block 
+# You can pass a lambda as a method argument
+# prefixed with & to call it as a block (i.e. using yield)
+# This doesn't work with regular methods only 
+# procs and lambdas
+
+# map([1, 2, 3, 4, 5], &power_2)
+# => [1, 4, 9, 16, 25]
+
+# Procs
+# There is no dedicated lambda clas. A lambda is
+# just a special kind of proc 
+
+my_proc = Proc.new { |x| puts x }
+
+# Differences between procs and lambdas
+
+a = Proc.new { |x, y| puts "I don't care about the arguments" }
+# a.call(4) 
+# as you see we are passing down one argument to our proc above
+# but, the procs doesn't care about arguments wether you pass down
+# the same number of arguments or not and that's one of the differences
+# between procs and lambdas
+
+# Procs and Lambdas also handle return differently.
+# A lambda will return normally, like a regular method
+# Procs on the other hand return from the method enclosing the proc.
+
+def test_progs_and_lambdas
+    yield 
+    puts "Hello"
+end
+
+l = lambda do 
+    puts "Lambda" 
+    return 
+end
+p = Proc.new do  
+    puts "Proc" 
+    return 
+end
+
+# test_progs_and_lambdas(&l) 
+# Lambda
+# Hello
+# test_progs_and_lambdas(&p)
+# Proc
+
+# Named Arguments
+# In ruby methods can take named arguments
+# They must be given a default value
+
+def add(first: 0, second: 1) 
+    # The argument first has a default of 0
+    # second has a default of 1
+    first + second
+end
+
+add() # => 1 
+# puts add(0, 2) # => ArgumentError wrong number of arguments
+
+# To use named arguments you must refer to them by name
+add(first: 10) # => 11
+add(first: 10, second: 10) # => 20
+add(second: 10) # => 10
+
+# add(first: 10, second: 10, third: 12) 
+# ArgumentError unknown keyword: third
+
+# Other ruby tidbits
+# ternary operator
+x = 5
+x > 10 ? "Big number" : "Little number"
+
+# Equivalent to:
+
+if x > 10 
+    "Big number"
+else 
+    "Little number"
+end
+
+# or equals 
+y = 10
+y ||= 5
+z ||= 5
+y # => 10
+z # => 5
+
+# case statement
+
+puts "Hello there Please enter a language: "
+language = gets.chomp
+
+case language 
+when "English"
+    puts "Hello"
+when "French"
+    puts "Bonjour"
+when "Spanish"
+    puts "Hola"
+else
+    puts " I don't know hot to day hello to you, sorry"
+end
