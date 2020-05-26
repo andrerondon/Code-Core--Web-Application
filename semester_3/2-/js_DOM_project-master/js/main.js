@@ -59,4 +59,60 @@ document
   .querySelector(".team.salmon .roster")
   .children.namedItem("nina-the-ninja");
 
+// Use '.parentElement' property to return the paren node of a given node
 
+toxicTim.parentElement; // <div class="roster">...</div>
+toxicTim.parentElement.parentElement; // <div class="team salmon">...</div>
+toxicTim.parentElement.parentElement.parentElement; // <div class="teams">...</div>
+
+// console.log("Start selecting toxic tim parents");
+// let parent = toxicTim;
+// This prints, starting from toxic tim, all parents until there are no more
+// parents
+// while (parent) {
+//   console.log(parent);
+//   parent = parent.parentElement;
+// }
+
+// <node>.matches(<css-query>)
+// return true if <node> matches the <css-query>
+toxicTim.matches("h1"); // false
+toxicTim.matches("#toxic-tim"); // true
+toxicTim.matches(".doggo.fighter"); // true
+toxicTim.matches(".doggo.fly"); // false
+
+// <node>.closest(<css-query>)
+// Searches all ancestor of <node> (beginning with itself)
+// for the first node that matches the <css-query>.
+// If no matching ancestor node, then return 'null'
+// Can be thought like a reverse .querySelector(...)
+
+toxicTim.closest("div"); // <div id="toxic-tim" class="doggo fighter">...</div>
+toxicTim.closest(".team"); // <div class="team salmon">...</div>
+
+// Manipulating Nodes
+
+// Changing Inline Styles
+
+// Noes have a 'style' property that can be used to manipulate the
+// inline style of an HTML element.
+// This is the same as adding CSS to the 'style' attribute of a tag.
+
+// When using the '.' notation, we use camelCase to refer to CSS property names
+// border-radius
+// toxicTim.style.border = "solid 5px lime";
+// toxicTim.style.borderRadius = "10px";
+
+// Since toxicTim like any Node is just a special JS object,
+// we can also use '[]' notation
+// toxicTim.style['background-image'] = 'url(images/paws.jpg)';
+
+// To read the actual computed styles of a node, use the global function
+// 'getComputedStyle(<node>)'
+getComputedStyle(toxicTim);
+
+// You can change these styles from here.
+// getComputedStyle(toxicTim).backgroundColor = "red"; // This will not work
+
+
+// 
