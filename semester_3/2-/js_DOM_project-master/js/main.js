@@ -114,5 +114,74 @@ getComputedStyle(toxicTim);
 // You can change these styles from here.
 // getComputedStyle(toxicTim).backgroundColor = "red"; // This will not work
 
+// Changing the contents of a node
+// There are 4 properties to read and write to the contents of
+// a node. They are: .innerHTML, .innerText, .outerHTML, .outerText
+teamSalmon.innerHTML; // returns all of the HTML content inside Team Salmon as a string
+teamSalmon.innerText; // returns all of the content with HTML tags stripped effectively,
+// just the text
 
-// 
+// The versions with .outer* are nearly the same, except they include the node itself
+
+// Reading and writing to HTML attributes
+toxicTim.id; // "toxic-tim"
+toxicTim.class; // undefined
+toxicTim.className; // "doggo fighter"
+toxicTim.href; // this is for anchor tags
+toxicTim.name; // read the name attribute of an input field
+
+// <node>.getAttribute(<attribute-name>);
+// Returns the value of an HTML attribute with the name
+// <attribute-name> from <node> even if it is a custom attribute
+
+toxicTim.getAttribute("id"); // "toxic-tim"
+toxicTim.getAttribute("class"); // "doggo fighter"
+
+// <node>.setAttribute('<attribute-name>', '<value>');
+// Set or update an attribute with name <attribute-name> to the value <value>
+// toxicTim.setAttribute("id", "nina-the-ninja");
+toxicTim.setAttribute("data-method", "delete");
+toxicTim.setAttribute("data-target", "#navbar-nav");
+toxicTim.setAttribute("favourite-wizard", "Gandalf");
+
+// Working with classes
+
+// Adding a single class
+toxicTim.classList.add("dead");
+// removing a class
+toxicTim.classList.remove("dead");
+// Adding multiple classes
+toxicTim.classList.add("dead", "invisible");
+// removing multiple classes
+toxicTim.classList.remove("dead", "invisible", "dlkjsfadfsdfa");
+// no error is thrown if trying to remove a class that does not exist on an element
+
+toxicTim.classList.toggle("invisible");
+// if not already invisible, makes invisible
+// otherwise, turns off invisibility
+
+// removing a node
+// toxicTim.remove();
+
+// Exercise: Vandalise the Arena
+// 1. Change the color of all teams to fuchsia
+// const teams = document.querySelectorAll(".team");
+// for (let node of teams) {
+//   node.style.backgroundColor = "fuchsia";
+// }
+// 2. Rename all doggos to Rob The Slob
+// const allDoggos = document.querySelectorAll(".doggo.fighter");
+// allDoggos.forEach((doggo) => (doggo.innerHTML = "Rob The Slob"));
+// 3. Change all doggo picture to that of a cat from internet
+// allDoggos.forEach(
+//   (doggo) =>
+//     (doggo.style.backgroundImage =
+//       "url(https://i.ytimg.com/vi/SQJrYw1QvSQ/maxresdefault.jpg)")
+// );
+
+// Creating nodes
+// document.createElement("<tag-name>");
+// To create a node, use the method above with the name of a tag
+// "p", "div", "form", "button", etc
+
+const dribBitDarel = document.createElement("div");
