@@ -50,6 +50,13 @@ const Question = {
       body: JSON.stringify(params),
     });
   },
+
+  destroy(id) {
+    return fetch(`${baseUrl}/questions/${id}`, {
+      credentials: "include",
+      method: "DELETE",
+    }).then((res) => res.json());
+  },
 };
 
 // This is a helper module with methods associated with creating (and maybe later, destroying)
@@ -71,4 +78,102 @@ const Session = {
 Session.create({
   email: "js@winterfell.gov",
   password: "supersecret",
+});
+
+/*
+{
+    id: 11,
+    title: "Transmitting the transmitter won't do anything, we need to index the neural xml microchip!",
+    body: "Chuck Norris' addition operator doesn't commute; it teleports to where he needs it to be.",
+    hello_world: "hello world from serializer",
+    like_count: 5,
+    author: {
+        id: 8,
+        first_name: "Rodger",
+        last_name: "Hermann",
+        email: "christina.kuhlman@koch.co",
+        password_digest: "$2a$12$GA5ScDd8T0d8hmVyIlywkOnGlPeIt5W0CPSCOgSOvJgm5ep0xAwBK",
+        created_at: "2020-05-06T16:32:48.217Z",
+        updated_at: "2020-05-06T16:32:48.217Z",
+        is_admin: false
+    },
+}
+*/
+
+// Listing all the questions on the page
+// 1. Add an event listener to the Questions link in navbar
+// 2. Handle Navigation
+// 3. Fetch all questions when user clicks on Question link
+// 4. Render the questions page with fetched questions
+
+// Getting a single question with id
+// 1. Add an event listener to questions container to grab the clicked question
+// 2. Get the id of the clicked question and send a get request to get the question
+// 3. Navigate to question show and render the fetched question
+
+const renderQuestions = (questions) => {
+  const questionsContainer = document.querySelector("ul.question-list");
+  const htmlString = questions
+    .map((question) => {
+      return `
+      <div class="item">
+        <a class="header question-link" data-id="${question.id} href="">
+            <span>${question.id} - </span>
+            ${question.title}
+        </a>
+      </div>
+      `;
+    })
+    .join("");
+
+  questionsContainer.innerHTML = htmlString;
+};
+
+const refreshQuestions = () => {
+  Question.all().then((questions) => renderQuestions(questions));
+};
+
+const handleNavigation = (id, clickedLink) => {
+  if (id === "question-index") {
+    refreshQuestions();
+  }
+
+  // activeate the target page and deactiveate all the others
+  document.querySelectorAll(".page").forEach((node) => {
+    node.classList.remove("active");
+  });
+
+  document.querySelector(`.page#${id}`).classList.add("active");
+
+  // activeate the clicked link and deactiveate the others
+  document.querySelectorAll(".navbar a").forEach((link) => {
+    link.classList.remove("active");
+  });
+
+  if (clickedLink) {
+    clickedLink.classList.add("active");
+  }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Getting all questions event listener
+  document.querySelector(".navbar").addEventListener("click", (event) => {
+    event.preventDefault();
+    const clickedLink = event.target.closest("[data-target]");
+    if (clickedLink) {
+      const id = clickedLink.getAttribute("data-target");
+      // Handle Navigation
+      handleNavigation(id, clickedLink);
+    }
+  });
+
+  // Get a signle question
+  const questionsContainer = document.querySelector("ul.question-list");
+  questionsContainer.addEventListener("click", (event) => {
+    const questionLink = event.target.closest("a.question-link");
+    if (questionLink) {
+      event.preventDefault();
+      const id = questionLink.dataset.id;
+    }
+  });
 });
