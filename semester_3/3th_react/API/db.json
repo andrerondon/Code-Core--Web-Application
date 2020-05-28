@@ -1,0 +1,50 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "json-server",
+            "description": "This is an awesome product",
+            "owner": "Typicode"
+        },
+        {
+            "id": 2,
+            "title": "json-server2",
+            "description": "This is an awesome product",
+            "owner": "John Doe"
+        },
+        {
+            "id": 3,
+            "title": "json-server3",
+            "description": "This is an awesome product",
+            "owner": "Alex"
+        },
+        {
+            "id": 4,
+            "title": "json-server4",
+            "description": "This is an awesome product",
+            "owner": "Roma"
+        },
+        {
+            "id": 5,
+            "title": "json-server",
+            "description": "This is an awesome product",
+            "owner": "Ronaldo"
+        },
+        {
+            "id": 6,
+            "title": "json-server",
+            "description": "This is an awesome product",
+            "owner": "Michael Owen"
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "body": "some comment",
+            "postId": 1
+        }
+    ],
+    "profile": {
+        "name": "typicode"
+    }
+}
