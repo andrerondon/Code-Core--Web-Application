@@ -18,19 +18,7 @@ export class QuestionShowPage extends Component {
       question: oneQuestionData,
     };
   }
-  deleteQuestion() {
-    this.setState({ question: null });
-  }
   render() {
-    if (!this.state.question) {
-      return (
-        <main className="Page">
-          <h2 style={{ color: "white", backgroundColor: "red" }}>
-            Question Doesn't Exist
-          </h2>
-        </main>
-      );
-    }
     return (
       <main className="QuestionShowPage">
         <QuestionDetails
@@ -44,7 +32,6 @@ export class QuestionShowPage extends Component {
           //   view_count={this.state.question.view_count}
           //   created_at={this.state.question.created_at}
         />
-        <button onClick={() => this.deleteQuestion()}>Delete</button>
         <AnswerList answers={this.state.question.answers} />
       </main>
     );
