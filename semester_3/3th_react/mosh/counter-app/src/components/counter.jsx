@@ -1,55 +1,42 @@
 import React, { Component } from 'react';
-class  Counter extends Component {
+class  Counters extends Component {
     state = {
-        count: 0
+        value: this.props.value
         // imageUrl: 'https://picsum.photos/200'
-        // tags : [ "tag1", "tag2", "tag3"]
+     
     };
 
-    // constructor(){
-    //     super();
-    //     this.handleIncrement.bind = this.handleIncrement.bind(this);
-    // }
-    
-    // styles = {
-    //     fontSize: 20,
-    //     fontWeight: "bold"
-    // };
-    // renderTags() {
-    //     if (this.state.tags.length === 0)
-    //     return <p>There is no Tags!</p>;
-    //     return <ul>{this.state.tags.map(tag =>  <li>{ tag }</li>)}</ul>;
-    // }
-    handleIncrement = () =>  {
-        this.setState({ count: this.state.count + 1 })
+    handleIncrement = (product) =>  {
+        this.product = product;
+        this.setState({ value: this.state.value + 1 })
         
     }
 
-    render() {  
+    render() { 
         return (
             <div>
                 {/* <img src={this.state.imageUrl} alt=""/> */}
-                <span  className={this.getBadgeClasses()}>{this.formatCount()}</span>
+                <span  className={this.getBadgeClasses()}>{this.formatvalue()}</span>
                 <button 
-                    onClick={this.handleIncrement} 
+                    onClick={ () => this.handleIncrement (this.product)} 
                     className="btn btn-secondary btn-sm "
                 >
                     Increment
                 </button>
-                {/* {this.renderTags()} */}
+                
             </div>
         );
     }
 
     getBadgeClasses() {
         let classes = "badge m-2 badge-";
-        classes += this.state.count === 0 ? "warning" : "primary";
+        classes += this.state.value === 0 ? "warning" : "primary";
     }
 
-    formatCount(){
-        const { count } = this.state;
-        return count === 0 ? "Zero" : count;
+    formatvalue(){
+        const { value } = this.state;
+        return value === 0 ? "Zero" : value;
     }
 }
 
-export default Counter;
+export default Counters;
