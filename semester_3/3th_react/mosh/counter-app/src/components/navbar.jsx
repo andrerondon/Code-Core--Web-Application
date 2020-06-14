@@ -1,16 +1,18 @@
-import React, { Component } from 'react';  
+import React from 'react';  
 
 
 // stateless Functional Component
 
-const NavBar = (props) => {
+const NavBar = ({ totalCounters }) => {
+    console.log('NavBar - rendered');
+    
     return (  
         <nav className="navbar navbar-light bg-light">
             <a className="navbar-brand" href="#"
             >
                 Navbar 
             <span className="baddge badge-pill badge-secondary">
-                {props.totalCounters}
+                {totalCounters}
             </span>
             </a>
         </nav>

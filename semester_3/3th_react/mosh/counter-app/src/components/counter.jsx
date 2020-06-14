@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
+
 class  Counters extends Component {
-   
+
+    componentDidUpdate(prevProps, prevState){
+        if(prevProps.counter.value !== this.props.counter.value){
+            // Ajax call and get new data from the server
+        }
+    }
+
+
     render() { 
+        console.log('Counter - Rendered');
+        
         return (
             <div>
                 {/* <img src={this.state.imageUrl} alt=""/> */}
