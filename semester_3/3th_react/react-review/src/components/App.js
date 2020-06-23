@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import CharacterList from './CharacterList';
 import { getCharacters } from '../requests';
+import CharacterPage from './CharacterIndex';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      characters: []
+      characters: [],
+      selectedCharacter: null
     }
+    this.selectCharacter = this.selectCharacter.bind(this)
   }
 
   componentDidMount() {
@@ -27,12 +29,32 @@ class App extends Component {
       })
   }
 
+  selectCharacter(id) {
+    // id will be a nubmer like 1112312
+    const foundCharacter = this.state.characters.filter((char) => {
+      return char.id === id
+    })[0]
+    if(foundCharacter) {
+      this.setState((state) => {
+        return {
+          selectedCharacter: foundCharacter
+        }
+      })
+    }
+  }
+
   render() {
     return(
-      <div>
-        <CharacterList characters={this.state.characters}/>
+      <div style={styles.container}>
+        <CharacterPage characters={this.state.characters} selectCharacter={this.selectCharacter}/>
       </div>
     )
+  }
+}
+
+const styles = {
+  container: {
+    width: '100vw'
   }
 }
 
