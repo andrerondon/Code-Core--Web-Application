@@ -1,0 +1,4 @@
+module.exports = {
+    MARVEL_API_KEY: '8583c7ef66e81fc1e59d5aa9b52b5da6',
+    MARVEL_PRIVATE_KEY: '2215c47747e4a95bac87ebba9164714bd1853339'
+  };

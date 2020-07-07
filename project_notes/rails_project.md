@@ -6,6 +6,12 @@
 
     rails webpacker:install
 
+
+### To change Ruby version:
+
+rvm use 2.6.1 or rvm use 2.7.1
+
+
 ### To start the rails server:
 
     rails s
